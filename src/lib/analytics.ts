@@ -17,8 +17,11 @@ export function initAnalytics() {
   if (started || typeof window === "undefined" || !primary) return;
   started = true;
   window.dataLayer = window.dataLayer || [];
-  window.gtag = function gtag(...args: unknown[]) {
-    window.dataLayer?.push(args);
+  // gtag.js only treats `arguments` objects pushed to dataLayer as commands; a plain array is
+  // ignored as ordinary data, so this must not be rewritten with rest parameters.
+  window.gtag = function gtag() {
+    // eslint-disable-next-line prefer-rest-params
+    window.dataLayer?.push(arguments);
   };
   window.gtag("js", new Date());
   if (GA_ID) window.gtag("config", GA_ID);

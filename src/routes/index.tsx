@@ -301,8 +301,13 @@ function Index() {
                   </Button>
                 ))}
                 <p className="menu-tip">{menuTip}</p>
-                <SocialLinks variant="inkline" place="menu" label="追蹤大叔，看最新出攤消息" />
               </div>
+              <SocialLinks
+                variant="line"
+                place="menu"
+                label="追蹤大叔，看最新出攤消息"
+                className="stage-social"
+              />
             </div>
 
             <div hidden={mode !== "franchise"} id="franchise">
@@ -398,6 +403,12 @@ function Index() {
                   <a href="#philosophy">0元加盟方案的設計初衷</a>
                 </Button>
               </div>
+              <SocialLinks
+                variant="line"
+                place="franchise"
+                label="追蹤大叔，看最新出攤消息"
+                className="stage-social"
+              />
             </div>
           </div>
         </section>
@@ -453,7 +464,6 @@ function Index() {
                 ))}
               </div>
             </div>
-            <SocialLinks variant="line" place="philosophy" label="追蹤大叔" />
           </div>
         </section>
 

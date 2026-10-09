@@ -736,15 +736,8 @@
 .social-center {
   justify-content: center;
 }
-.philosophy .social-links {
-  margin-top: 36px;
-  padding-top: 24px;
-  border-top: 1px solid rgb(255 248 236 / 0.25);
-}
-.menu-card .social-links {
-  margin-top: 18px;
-  padding-top: 16px;
-  border-top: 1px dashed var(--border);
+.stage-social {
+  margin-top: 28px;
 }
 .cta-row {
   display: flex;

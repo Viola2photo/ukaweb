@@ -23,6 +23,7 @@ import {
 } from "@/lib/brand-data";
 import { trackEvent } from "@/lib/analytics";
 import { useCopyText } from "@/hooks/use-copy-text";
+import { SocialLinks } from "@/components/social-links";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -300,6 +301,7 @@ function Index() {
                   </Button>
                 ))}
                 <p className="menu-tip">{menuTip}</p>
+                <SocialLinks variant="inkline" place="menu" label="追蹤大叔，看最新出攤消息" />
               </div>
             </div>
 
@@ -451,6 +453,7 @@ function Index() {
                 ))}
               </div>
             </div>
+            <SocialLinks variant="line" place="philosophy" label="追蹤大叔" />
           </div>
         </section>
 
@@ -553,20 +556,7 @@ function Index() {
                 />
               </label>
             )}
-            <div className="cta-row">
-              {contact.social.map((s) => (
-                <Button key={s.id} variant="line" asChild>
-                  <a
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => trackEvent("click_social", { network: s.id })}
-                  >
-                    {s.label}
-                  </a>
-                </Button>
-              ))}
-            </div>
+            <SocialLinks variant="line" place="contact" className="social-center" />
           </div>
         </section>
       </main>

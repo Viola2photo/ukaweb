@@ -22,7 +22,7 @@ bun run lint
 ## 部署（Cloudflare）
 
 - 建置會輸出 `.output/server/wrangler.json`，可直接用 Cloudflare Workers Builds 連接 GitHub 儲存庫部署。
-- 建置指令 `bun run build`，部署指令 `npx wrangler deploy`，Worker 名稱需與 wrangler.json 的 `name` 相同。
+- 建置指令 `bun run build`，部署指令 `npx wrangler deploy`，Worker 名稱需與 wrangler.json 的 `name`（目前為 `ukaweb`，設定在 vite.config.ts）相同。
 
 ## 廣告追蹤
 

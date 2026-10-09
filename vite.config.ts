@@ -20,7 +20,15 @@ export default defineConfig(({ command }) => ({
         client: { files: ["**/server/**"], specifiers: ["server-only"] },
       },
     }),
-    ...(command === "build" ? [nitro({ defaultPreset: "cloudflare-module" })] : []),
+    ...(command === "build"
+      ? [
+          nitro({
+            defaultPreset: "cloudflare-module",
+            // Must match the Worker name in the Cloudflare dashboard.
+            cloudflare: { wrangler: { name: "ukaweb" } },
+          }),
+        ]
+      : []),
     react(),
   ],
   resolve: {

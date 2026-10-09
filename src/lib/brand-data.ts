@@ -1,12 +1,4 @@
-import flower from "@/assets/DSC_7978.jpg.asset.json";
-import squid from "@/assets/DSC_7986.jpg.asset.json";
-import duo from "@/assets/DSC_7981.jpg.asset.json";
-import shrimp from "@/assets/DSC_7988.jpg.asset.json";
-import shrimpCross from "@/assets/DSC_7989.jpg.asset.json";
-import burdock from "@/assets/DSC_7995.jpg.asset.json";
-import chef from "@/assets/uncle-chef.png.asset.json";
-
-// Images that are not Lovable asset pointers live in public/img (persistent, committed files).
+// All images are committed static files in public/img.
 const img = (name: string) => `/img/${name}`;
 
 export const company = {
@@ -38,7 +30,7 @@ export const contact = {
 
 export const brandImages = {
   logo: img("uncle-sticker.png"),
-  chef: chef.url,
+  chef: img("uncle-chef.jpg"),
 };
 
 export type Mascot = { image: string; alt: string };
@@ -77,7 +69,7 @@ export const products: readonly Product[] = [
     subtitle: "兩種海味・一次滿足",
     description:
       "北海鱈花枝＋札幌墨魚燒，一次吃到兩種海味。推薦芥末沙拉搭配小辣「黯然銷粉」，再加酸甜酸黃瓜，冠軍搭配一次愛上。",
-    image: duo.url,
+    image: img("p-duo.jpg"),
     alt: "冠軍雙拼",
     prices: [100, 150, 200],
     tag: "No.1 人氣",
@@ -89,7 +81,7 @@ export const products: readonly Product[] = [
     subtitle: "海味滿滿・外酥內彈",
     description:
       "鱈魚漿包進花枝、蝦仁、魷魚、干貝、荸薺與洋蔥。外層酥香，裡頭吃得到不同食材的口感。",
-    image: flower.url,
+    image: img("p-flower.jpg"),
     alt: "北海鱈花枝",
     prices: [80, 150, 200],
     mascot: mascots.flowerCute,
@@ -106,7 +98,7 @@ export const products: readonly Product[] = [
     subtitle: "酥香登場・海味日常",
     description:
       "墨魚、魷魚、干貝、松阪肉與鱈魚五種食材融合，保留咀嚼時的小顆粒口感。外酥內彈，咬下還有海鮮的鮮與多汁。",
-    image: squid.url,
+    image: img("p-squid.jpg"),
     alt: "札幌墨魚燒",
     prices: [70, 130, 180],
   },
@@ -115,13 +107,13 @@ export const products: readonly Product[] = [
     name: "鮮貝鱈蝦球",
     subtitle: "海鮮好料・咬開看看",
     description: "鱈魚漿包著整顆蝦仁，搭配大顆干貝、魷魚、荸薺與洋蔥。咬開酥香外皮，好料看得見。",
-    image: shrimp.url,
+    image: img("p-shrimp.jpg"),
     alt: "鮮貝鱈蝦球",
     prices: [100, 160, 240],
     tag: "NEW",
     mascot: mascots.shrimp,
     cross: {
-      image: shrimpCross.url,
+      image: img("p-shrimp-cross.jpg"),
       alt: "鮮貝鱈蝦球剖面",
       text: "剖面看得見整顆蝦仁，以及大顆干貝、魷魚、荸薺與洋蔥。",
       mascot: mascots.shrimp,
@@ -133,7 +125,7 @@ export const products: readonly Product[] = [
     subtitle: "牛蒡香氣・酥香滋味",
     description:
       "以鱈魚漿為底，牛蒡絲加量。炸起後外層酥脆，鱈魚漿與牛蒡的香氣越嚼越明顯，一口接一口。",
-    image: burdock.url,
+    image: img("p-burdock.jpg"),
     alt: "牛蒡鱈魚燒",
     prices: [60, 100, 150],
     tag: "NEW",

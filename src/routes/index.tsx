@@ -305,7 +305,7 @@ function Index() {
               <SocialLinks
                 variant="line"
                 place="menu"
-                label="追蹤大叔，看最新出攤消息"
+                label={contact.socialLabel}
                 className="stage-social"
               />
             </div>
@@ -406,7 +406,7 @@ function Index() {
               <SocialLinks
                 variant="line"
                 place="franchise"
-                label="追蹤大叔，看最新出攤消息"
+                label={contact.socialLabel}
                 className="stage-social"
               />
             </div>

@@ -17,6 +17,7 @@ export const contact = {
   phone: "0980115055",
   phoneHref: "tel:0980115055",
   lineId: "0980115055",
+  socialLabel: "來認識鱈魚大叔",
   social: [
     {
       id: "facebook",

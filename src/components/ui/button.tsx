@@ -10,9 +10,14 @@ const buttonVariants = cva(
     variants: {
       variant: {
         brand: "brand-button brand-button-red",
-        sea: "brand-button brand-button-sea",
+        ink: "brand-button brand-button-ink",
         paper: "brand-button brand-button-paper",
-        photo: "photo-button",
+        line: "brand-button brand-button-line",
+        inkline: "brand-button brand-button-inkline",
+        mode: "mode-switch",
+        tab: "product-tab",
+        step: "step-dot",
+        row: "menu-row",
         default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
         destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline:

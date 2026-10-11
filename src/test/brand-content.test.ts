@@ -52,16 +52,17 @@ describe("brand content", () => {
     const items = regions.flatMap((r) => r.items);
     expect(items.filter((i) => i.day).map((i) => `${i.text}${i.day}`)).toEqual([
       "竹中口週一",
-      "青草湖週三",
+      "竹北興希望社區週二",
+      "新埔週三",
       "二重埔週四",
+      "新庄子週五",
       "竹東週六",
-      "大溪週日",
     ]);
     expect(regions.find((r) => r.name === "東部")?.items.map((i) => i.text)).toContain(
       "台東各夜市",
     );
     expect(items.map((i) => i.text)).toContain("南投家樂福");
-    expect(items).toHaveLength(24);
+    expect(items).toHaveLength(25);
   });
 
   it("keeps the pop-up stalls separate from fixed stalls", () => {

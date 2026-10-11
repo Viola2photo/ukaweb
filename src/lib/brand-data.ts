@@ -149,10 +149,11 @@ export const regions: readonly Region[] = [
       { text: "蘆洲得勝街76號" },
       { text: "桃園夜市：桃園區北埔路133號路口" },
       { text: "竹中口", day: "週一" },
-      { text: "青草湖", day: "週三" },
+      { text: "竹北興希望社區", day: "週二" },
+      { text: "新埔", day: "週三" },
       { text: "二重埔", day: "週四" },
+      { text: "新庄子", day: "週五" },
       { text: "竹東", day: "週六" },
-      { text: "大溪", day: "週日" },
     ],
   },
   {

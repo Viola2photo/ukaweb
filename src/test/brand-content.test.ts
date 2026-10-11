@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import {
   company,
   contact,
+  creed,
   flashStalls,
   mascotGallery,
   products,
@@ -11,6 +12,10 @@ import {
 } from "@/lib/brand-data";
 
 describe("brand content", () => {
+  it("keeps the brand creed wording", () => {
+    expect(creed.lines.join(" ")).toBe("鱈魚大叔用心用感情 創造好料理");
+  });
+
   it("lists the five signature products in the confirmed order with three prices each", () => {
     expect(products.map((p) => p.name)).toEqual([
       "冠軍雙拼",

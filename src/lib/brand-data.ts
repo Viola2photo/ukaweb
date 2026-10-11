@@ -257,6 +257,11 @@ export const steps: readonly Step[] = [
 export const franchiseFootnote =
   "開業時程依實際準備情形；付款日期與合作內容以正式契約為準。首批貨品金額為可銷售金額說明，實際營收與獲利依經營情形而定。";
 
+export const creed = {
+  kicker: "品牌精神",
+  lines: ["鱈魚大叔用心用感情", "創造好料理"],
+} as const;
+
 export const story = {
   kicker: "品牌故事｜為什麼叫「烏卡港」？",
   heading: ["基隆家鄉味", "帶到更多街口。"],

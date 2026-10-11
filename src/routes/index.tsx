@@ -14,6 +14,7 @@ import {
   mascotGallery,
   menuTip,
   philosophy,
+  creed,
   priceSizes,
   privacyPolicy,
   products,
@@ -185,6 +186,7 @@ function Index() {
             <div className="stage-intro">
               <p>從基隆出發的魚漿料理・{company.brand}</p>
               <h1 id="hero-title">一口咬下，海鮮好料一起登場。</h1>
+              <p className="stage-creed">{creed.lines.join("　")}</p>
             </div>
             <div className="mode-switches" role="group" aria-label="切換內容">
               <Button
@@ -413,6 +415,17 @@ function Index() {
           </div>
         </section>
         <div className="edge" aria-hidden="true" />
+
+        <section className="creed-band" aria-labelledby="creed-title">
+          <div className="container-brand">
+            <p className="creed-kicker">{creed.kicker}</p>
+            <h2 id="creed-title" className="creed-text">
+              {creed.lines[0]}
+              <br />
+              {creed.lines[1]}
+            </h2>
+          </div>
+        </section>
 
         <section id="story" className="section">
           <div className="container-brand two">

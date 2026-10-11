@@ -409,6 +409,32 @@
   font-weight: 700;
   font-size: clamp(18px, 2vw, 24px);
 }
+.stage-intro .stage-creed {
+  margin: 10px 0 0;
+  font-family: var(--font-serif);
+  font-size: clamp(15px, 1.6vw, 18px);
+  letter-spacing: 3px;
+  color: var(--gold);
+}
+.creed-band {
+  text-align: center;
+  padding: clamp(40px, 6vw, 72px) 0 0;
+}
+.creed-kicker {
+  margin: 0 0 12px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  font-size: 14px;
+  color: var(--primary-dark);
+}
+.creed-text {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: 900;
+  font-size: clamp(28px, 4.6vw, 52px);
+  line-height: 1.5;
+  color: var(--ink);
+}
 .mode-switches {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

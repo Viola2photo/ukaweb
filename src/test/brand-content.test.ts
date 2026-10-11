@@ -13,7 +13,7 @@ import {
 
 describe("brand content", () => {
   it("keeps the brand creed wording", () => {
-    expect(creed.lines.join(" ")).toBe("鱈魚大叔用心用感情 創造好料理");
+    expect(creed.lines.join("")).toBe("鱈魚大叔用心用感情 創造好料理");
   });
 
   it("lists the five signature products in the confirmed order with three prices each", () => {

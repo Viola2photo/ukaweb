@@ -259,7 +259,7 @@ export const franchiseFootnote =
 
 export const creed = {
   kicker: "品牌精神",
-  lines: ["鱈魚大叔用心用感情", "創造好料理"],
+  lines: ["鱈魚大叔", "用心用感情 創造好料理"],
 } as const;
 
 export const story = {

@@ -183,6 +183,22 @@ export const regions: readonly Region[] = [
   { name: "東部", items: [{ text: "花蓮東大門" }, { text: "台東各夜市" }] },
 ];
 
+// Pop-up stalls: visits are real but the dates are not fixed.
+export const flashStalls = [
+  "頭份建國夜市",
+  "苑裡日南夜市",
+  "苗栗通霄夜市",
+  "竹南國泰夜市",
+  "新竹花市",
+  "彰化芬園夜市",
+  "大里塗城夜市",
+  "南投水里夜市／卓蘭夜市",
+  "三義夜市",
+  "東勢夜市",
+  "後龍夜市",
+  "大員林市場",
+  "彰化精誠夜市",
+] as const;
 
 export const businessHours = "通常營業 15:00–23:00，各點位依實際狀況調整，出發前歡迎先聯絡確認。";
 

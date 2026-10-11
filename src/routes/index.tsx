@@ -29,7 +29,7 @@ import { SocialLinks } from "@/components/social-links";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "鱈魚大叔｜從基隆出發的魚漿料理・招牌菜單・夜市據點・0元加盟方案" },
+      { title: "鱈魚大叔 用心用感情 創造好料理｜招牌菜單・夜市據點・0元加盟方案" },
       {
         name: "description",
         content:

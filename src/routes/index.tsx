@@ -184,9 +184,8 @@ function Index() {
         <section id="stage" className="stage wave wave-drift" aria-labelledby="hero-title">
           <div className="container-brand">
             <div className="stage-intro">
-              <p>從基隆出發的魚漿料理・{company.brand}</p>
-              <h1 id="hero-title">一口咬下，海鮮好料一起登場。</h1>
-              <p className="stage-creed">{creed.lines.join("　")}</p>
+              <h1 id="hero-title">{creed.lines.join(" ")}</h1>
+              <p className="stage-creed">一口咬下，海鮮好料一起登場。</p>
             </div>
             <div className="mode-switches" role="group" aria-label="切換內容">
               <Button

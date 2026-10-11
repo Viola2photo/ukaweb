@@ -934,8 +934,7 @@
   font-weight: 700;
   color: var(--muted-foreground);
 }
-.region ul,
-.flash ul {
+.region ul {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -969,43 +968,6 @@
   font-weight: 700;
   padding: 3px 10px;
   border-radius: 999px;
-}
-.flash {
-  margin-top: 32px;
-  background: var(--ink);
-  color: var(--cream);
-  border-radius: 24px;
-  padding: 28px;
-}
-.flash-head {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 8px 16px;
-  margin-bottom: 16px;
-}
-.flash-head h3 {
-  margin: 0;
-  font-family: var(--font-serif);
-  font-weight: 900;
-  font-size: 26px;
-}
-.flash-head span {
-  font-size: 14px;
-  color: #f2c9a8;
-}
-.flash ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-.flash li {
-  border: 2px dashed var(--gold);
-  border-radius: 999px;
-  padding: 8px 16px;
-  font-size: 15px;
-  font-weight: 500;
 }
 .contact {
   padding: 72px 0;

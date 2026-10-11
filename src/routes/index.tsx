@@ -8,7 +8,6 @@ import {
   businessHours,
   company,
   contact,
-  flashStalls,
   franchiseFootnote,
   franchiseSummary,
   mascotGallery,
@@ -511,7 +510,7 @@ function Index() {
               尋找你的海味日常
             </h2>
             <p style={{ margin: "0 0 36px", fontSize: 16, lineHeight: 1.8 }}>
-              北中南東都有固定據點，另有不定期的臨時快閃攤。{businessHours}
+              北中南東都有固定據點。{businessHours}
             </p>
             <div className="regions">
               {regions.map((region) => (
@@ -531,17 +530,6 @@ function Index() {
                   </ul>
                 </div>
               ))}
-            </div>
-            <div className="flash">
-              <div className="flash-head">
-                <h3>臨時快閃攤</h3>
-                <span>時間不固定</span>
-              </div>
-              <ul>
-                {flashStalls.map((stall) => (
-                  <li key={stall}>{stall}</li>
-                ))}
-              </ul>
             </div>
           </div>
         </section>

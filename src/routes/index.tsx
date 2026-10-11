@@ -29,13 +29,15 @@ import { SocialLinks } from "@/components/social-links";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "鱈魚大叔 用心用感情 創造好料理｜招牌菜單・夜市據點・0元加盟方案" },
+      { title: "鱈魚大叔 用心用感情 創造好料理｜菜單・據點・0元加盟" },
       {
         name: "description",
         content:
           "鱈魚大叔用鱈魚漿包進花枝、蝦仁、干貝，外酥內彈。看五款招牌與菜單價格、夜市據點，以及先營運、後付費的0元加盟方案。營運企業：烏卡港企業社，電話0980115055。",
       },
-      { property: "og:title", content: "鱈魚大叔｜把好料包進你的夜市日常" },
+      { property: "og:title", content: "鱈魚大叔 用心用感情 創造好料理｜菜單・據點・0元加盟" },
+      { name: "twitter:title", content: "鱈魚大叔 用心用感情 創造好料理｜菜單・據點・0元加盟" },
+      { property: "og:url", content: "https://ukaport.com/" },
       {
         property: "og:description",
         content:

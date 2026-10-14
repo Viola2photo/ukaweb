@@ -166,7 +166,7 @@ export const regions: readonly Region[] = [
       { text: "梧棲區雲集街33號" },
       { text: "東海遊園南路143巷12號" },
       { text: "霧峰大東路夜市", day: "週二" },
-      { text: "南投加樂福夜市", day: "週三" },
+      { text: "南投家樂福夜市", day: "週三" },
       { text: "南崗夜市", day: "週四" },
       { text: "草鞋墩夜市", day: "週五・六・日" },
     ],

@@ -57,12 +57,16 @@ describe("brand content", () => {
       "二重埔週四",
       "新庄子週五",
       "竹東週六",
+      "霧峰大東路夜市週二",
+      "南投加樂福夜市週三",
+      "南崗夜市週四",
+      "草鞋墩夜市週五・六・日",
       "屏東煙囪觀光夜市週日",
     ]);
     expect(regions.find((r) => r.name === "東部")?.items.map((i) => i.text)).toContain(
       "台東各夜市",
     );
-    expect(items.map((i) => i.text)).toContain("南投家樂福");
+    expect(items.map((i) => i.text)).toContain("南投加樂福夜市");
     expect(items).toHaveLength(26);
   });
 

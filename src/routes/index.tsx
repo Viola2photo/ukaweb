@@ -15,6 +15,8 @@ import {
   menuTip,
   philosophy,
   creed,
+  cashPlan,
+  faq,
   priceSizes,
   privacyPolicy,
   products,
@@ -22,6 +24,7 @@ import {
   steps,
   story,
 } from "@/lib/brand-data";
+import { structuredData } from "@/lib/structured-data";
 import { trackEvent } from "@/lib/analytics";
 import { useCopyText } from "@/hooks/use-copy-text";
 import { SocialLinks } from "@/components/social-links";
@@ -50,6 +53,7 @@ export const Route = createFileRoute("/")({
       { name: "twitter:image", content: "https://ukaport.com/img/hero.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://ukaport.com/" }],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(structuredData) }],
   }),
   component: Index,
 });
@@ -336,6 +340,16 @@ function Index() {
                   </div>
                 ))}
               </div>
+              <div className="card cash-card rise">
+                <div>
+                  <small>{cashPlan.label}</small>
+                  <div className="v">
+                    {cashPlan.value}
+                    <span>{cashPlan.unit}</span>
+                  </div>
+                </div>
+                <p>{cashPlan.note}</p>
+              </div>
               <div className="track">
                 <div className="track-line" aria-hidden="true" />
                 <div
@@ -543,6 +557,23 @@ function Index() {
                   <li key={stall}>{stall}</li>
                 ))}
               </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="faq" className="section faq" aria-labelledby="faq-title">
+          <div className="container-brand">
+            <p className="kicker-dark">常見問題</p>
+            <h2 id="faq-title" className="section-heading" style={{ marginBottom: 24 }}>
+              關於鱈魚大叔
+            </h2>
+            <div className="faq-list">
+              {faq.map((item) => (
+                <details key={item.q} className="card faq-item">
+                  <summary>{item.q}</summary>
+                  <p>{item.a}</p>
+                </details>
+              ))}
             </div>
           </div>
         </section>

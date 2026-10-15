@@ -2,7 +2,9 @@ import { describe, expect, it } from "vitest";
 
 import {
   company,
+  cashPlan,
   contact,
+  faq,
   creed,
   flashStalls,
   mascotGallery,
@@ -12,6 +14,13 @@ import {
 } from "@/lib/brand-data";
 
 describe("brand content", () => {
+  it("answers the common questions with the confirmed facts", () => {
+    expect(faq.length).toBeGreaterThanOrEqual(6);
+    expect(faq.find((i) => i.q.includes("怎麼聯絡"))?.a).toContain("0980115055");
+    expect(faq.find((i) => i.q.includes("加盟方案"))?.a).toContain("17.5 萬元");
+    expect(cashPlan.value).toBe("17.5");
+  });
+
   it("keeps the brand creed wording", () => {
     expect(creed.lines.join("")).toBe("鱈魚大叔用心用感情 創造好料理");
   });

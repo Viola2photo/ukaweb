@@ -648,6 +648,56 @@
   font-size: 14px;
   line-height: 1.7;
 }
+.cash-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 28px;
+  padding: 20px 24px;
+  margin-bottom: 40px;
+  border-radius: 22px;
+  box-shadow: 6px 6px 0 var(--ink);
+}
+.cash-card small {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+}
+.cash-card .v {
+  font-family: var(--font-serif);
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 1.2;
+}
+.cash-card .v span {
+  font-size: 18px;
+}
+.cash-card p {
+  flex: 1 1 280px;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.faq-list {
+  display: grid;
+  gap: 14px;
+  max-width: 860px;
+}
+.faq-item {
+  padding: 18px 22px;
+  border-radius: 18px;
+}
+.faq-item summary {
+  cursor: pointer;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 18px;
+}
+.faq-item p {
+  margin: 12px 0 0;
+  font-size: 16px;
+  line-height: 1.9;
+}
 .track {
   position: relative;
   margin-bottom: 20px;

@@ -136,7 +136,7 @@ export const products: readonly Product[] = [
 export const priceSizes = ["小份", "大份", "特大"] as const;
 export const menuTip = "人氣 No.1 冠軍雙拼推薦吃法：芥末沙拉搭小辣「黯然銷粉」，再加酸甜酸黃瓜。";
 
-export type Location = { text: string; day?: string };
+export type Location = { text: string; day?: string; hours?: string };
 export type Region = { name: string; items: readonly Location[] };
 
 // Fixed stalls grouped by region. Addresses are shown exactly as supplied.
@@ -160,7 +160,7 @@ export const regions: readonly Region[] = [
     name: "中部",
     items: [
       { text: "銅鑼夜市" },
-      { text: "台中黎明路三段26號" },
+      { text: "台中黎明路三段26號", hours: "營業時間 17:00–03:00" },
       { text: "中港夜市D63" },
       { text: "台中西區中美街241號" },
       { text: "梧棲區雲集街33號" },

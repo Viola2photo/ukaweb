@@ -539,7 +539,10 @@ function Index() {
                     {region.items.map((item) => (
                       <li key={item.text} data-location>
                         <MapPin size={16} aria-hidden="true" />
-                        <span className="t">{item.text}</span>
+                        <span className="t">
+                          {item.text}
+                          {item.hours && <small className="hours">{item.hours}</small>}
+                        </span>
                         {item.day && <span className="day">{item.day}</span>}
                       </li>
                     ))}

@@ -1011,6 +1011,13 @@
   flex: 1;
   font-weight: 500;
 }
+.region li .hours {
+  display: block;
+  margin-top: 2px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--primary);
+}
 .day {
   flex-shrink: 0;
   background: var(--primary);

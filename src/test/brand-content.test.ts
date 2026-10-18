@@ -70,13 +70,14 @@ describe("brand content", () => {
       "南投家樂福夜市週三",
       "南崗夜市週四",
       "草鞋墩夜市週五・六・日",
+      "台南武聖 第五排15格週三・五・六",
       "屏東煙囪觀光夜市週日",
     ]);
     expect(regions.find((r) => r.name === "東部")?.items.map((i) => i.text)).toContain(
       "台東各夜市",
     );
     expect(items.map((i) => i.text)).toContain("南投家樂福夜市");
-    expect(items).toHaveLength(26);
+    expect(items).toHaveLength(27);
   });
 
   it("keeps the pop-up stalls separate from fixed stalls", () => {

@@ -66,6 +66,7 @@ const nav = [
   { id: "products", label: "招牌好料" },
   { id: "franchise", label: "0元加盟方案" },
   { id: "story", label: "品牌故事" },
+  { id: "stores", label: "點位故事" },
   { id: "locations", label: "尋找大叔" },
   { id: "contact", label: "聯絡我們" },
 ] as const;
@@ -530,7 +531,8 @@ function Index() {
             <p style={{ margin: "0 0 36px", fontSize: 16, lineHeight: 1.8 }}>
               北中南東都有固定據點，另有不定期的臨時快閃攤。{businessHours}
             </p>
-            <div className="store-cards">
+            <div id="stores" className="store-cards">
+              <h3 className="store-cards-title">點位故事｜新加入的大叔家夥伴</h3>
               <StoreSpotlight stores={featuredStores} />
             </div>
             <div className="regions">

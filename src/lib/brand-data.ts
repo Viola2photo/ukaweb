@@ -374,12 +374,12 @@ export const featuredStores: readonly FeaturedStore[] = [
     badge: "最新加盟",
     image: img("store-taichung-liming.jpg"),
     imageAlt: "鱈魚大叔在台中黎明路新加盟點位的攤位前介紹",
-    address: "台中市西屯區黎明路三段26號",
+    address: "台中市南屯區黎明路三段26號",
     nearby: "宏香火雞肉飯旁（原宏佳），鄰近朝馬",
     hours: "營業時間 17:00–03:00",
     mapUrl:
       "https://www.google.com/maps/search/?api=1&query=" +
-      encodeURIComponent("台中市西屯區黎明路三段26號"),
+      encodeURIComponent("台中市南屯區黎明路三段26號"),
     facebookVideoUrl: "https://www.facebook.com/reel/1399299159082457/",
     intro: [
       "台中的朋友，鱈魚大叔又多一個點啦！這次由海豚和海豚媽（小嬣）一起顧攤。",
@@ -387,6 +387,6 @@ export const featuredStores: readonly FeaturedStore[] = [
       "所有附近的朋友、基隆同鄉，歡迎來捧場！幫這對努力的母女加加油，順便把肚子照顧好。",
     ],
     signature: "冠軍雙拼",
-    tags: ["鱈魚大叔", "台中", "黎明路", "新據點", "西屯"],
+    tags: ["鱈魚大叔", "台中", "黎明路", "新據點", "逢甲"],
   },
 ];

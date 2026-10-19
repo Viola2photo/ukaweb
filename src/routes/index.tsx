@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
 import { Check, ChevronLeft, ChevronRight, Copy, MapPin, Menu, Phone, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -17,6 +17,7 @@ import {
   creed,
   cashPlan,
   faq,
+  featuredStores,
   priceSizes,
   privacyPolicy,
   products,
@@ -528,6 +529,24 @@ function Index() {
             <p style={{ margin: "0 0 36px", fontSize: 16, lineHeight: 1.8 }}>
               北中南東都有固定據點，另有不定期的臨時快閃攤。{businessHours}
             </p>
+            <div className="store-cards">
+              {featuredStores.map((store) => (
+                <Link
+                  key={store.slug}
+                  to="/stores/$slug"
+                  params={{ slug: store.slug }}
+                  className="card store-card"
+                >
+                  <img src={store.image} alt="" loading="lazy" />
+                  <span className="store-card-body">
+                    <span className="store-badge">{store.badge}</span>
+                    <strong>{store.name}</strong>
+                    <small>{store.address}</small>
+                    <span className="store-card-more">看新據點介紹 →</span>
+                  </span>
+                </Link>
+              ))}
+            </div>
             <div className="regions">
               {regions.map((region) => (
                 <div key={region.name} className="card region">

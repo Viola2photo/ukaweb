@@ -1377,3 +1377,113 @@
     animation: none !important;
   }
 }
+
+.store-cards {
+  margin-bottom: 28px;
+}
+.store-card {
+  display: flex;
+  gap: 16px;
+  align-items: stretch;
+  padding: 12px;
+  border-radius: 24px;
+  text-decoration: none;
+  color: inherit;
+}
+.store-card img {
+  width: 96px;
+  height: 128px;
+  object-fit: cover;
+  border-radius: 16px;
+  flex: none;
+}
+.store-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: center;
+}
+.store-card-body strong {
+  font-family: var(--font-serif);
+  font-weight: 900;
+  font-size: 22px;
+}
+.store-card-body small {
+  color: var(--muted-foreground);
+}
+.store-card-more {
+  font-weight: 700;
+  color: var(--primary);
+}
+.store-badge {
+  align-self: flex-start;
+  background: var(--gold);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 900;
+  border-radius: 999px;
+  padding: 2px 12px;
+}
+.store-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  text-decoration: none;
+  color: inherit;
+}
+.store-main {
+  display: grid;
+  grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
+  gap: 40px;
+  padding-top: 40px;
+  padding-bottom: 64px;
+  align-items: start;
+}
+.store-cover img {
+  width: 100%;
+  border-radius: 24px;
+  border: 3px solid var(--ink);
+  display: block;
+}
+.store-body .section-heading {
+  margin: 12px 0 16px;
+}
+.store-facts {
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+  font-weight: 700;
+}
+.store-facts li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.store-facts small {
+  display: block;
+  font-weight: 400;
+  color: var(--muted-foreground);
+}
+.store-text {
+  font-size: 17px;
+  line-height: 1.9;
+  margin: 0 0 14px;
+}
+.store-tags {
+  margin-top: 20px;
+  color: var(--muted-foreground);
+  font-size: 14px;
+}
+@media (max-width: 760px) {
+  .store-main {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    padding-top: 24px;
+  }
+  .store-cover {
+    max-width: 320px;
+  }
+}

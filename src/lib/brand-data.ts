@@ -349,3 +349,42 @@ export const privacyPolicy = {
     },
   ],
 } as const;
+
+export type FeaturedStore = {
+  slug: string;
+  name: string;
+  badge: string;
+  image: string;
+  imageAlt: string;
+  address: string;
+  nearby: string;
+  hours?: string;
+  mapUrl: string;
+  intro: string[];
+  signature: string;
+  tags: readonly string[];
+};
+
+// Franchise stalls that get their own page under /stores/<slug>.
+export const featuredStores: readonly FeaturedStore[] = [
+  {
+    slug: "taichung-liming",
+    name: "台中黎明路店",
+    badge: "最新加盟",
+    image: img("store-taichung-liming.jpg"),
+    imageAlt: "鱈魚大叔在台中黎明路新加盟點位的攤位前介紹",
+    address: "台中市西屯區黎明路三段26號",
+    nearby: "宏香火雞肉飯旁（原宏佳），鄰近朝馬",
+    hours: "營業時間 17:00–03:00",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=" +
+      encodeURIComponent("台中市西屯區黎明路三段26號"),
+    intro: [
+      "台中的朋友，鱈魚大叔又多一個點啦！這次由海豚和海豚媽（小嬣）一起顧攤。",
+      "認識我們，必點冠軍雙拼：搭配芥末沙拉、微辣的黯然銷粉及酸甜黃瓜碎，熱騰騰的鱈花枝、墨魚燒，等你來嚐嚐。",
+      "所有附近的朋友、基隆同鄉，歡迎來捧場！幫這對努力的母女加加油，順便把肚子照顧好。",
+    ],
+    signature: "冠軍雙拼",
+    tags: ["鱈魚大叔", "台中", "黎明路", "新據點", "西屯"],
+  },
+];

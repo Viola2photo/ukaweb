@@ -1523,3 +1523,22 @@
   font-weight: 700;
   color: var(--primary);
 }
+
+.store-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+.store-dots button {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border-radius: 999px;
+  border: 2px solid var(--ink);
+  background: transparent;
+  cursor: pointer;
+}
+.store-dots button.on {
+  background: var(--primary);
+}

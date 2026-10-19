@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
 import { Check, ChevronLeft, ChevronRight, Copy, MapPin, Menu, Phone, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -29,6 +29,7 @@ import { structuredData } from "@/lib/structured-data";
 import { trackEvent } from "@/lib/analytics";
 import { useCopyText } from "@/hooks/use-copy-text";
 import { SocialLinks } from "@/components/social-links";
+import { StoreSpotlight } from "@/components/store-spotlight";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -530,22 +531,7 @@ function Index() {
               北中南東都有固定據點，另有不定期的臨時快閃攤。{businessHours}
             </p>
             <div className="store-cards">
-              {featuredStores.map((store) => (
-                <Link
-                  key={store.slug}
-                  to="/stores/$slug"
-                  params={{ slug: store.slug }}
-                  className="card store-card"
-                >
-                  <img src={store.image} alt="" loading="lazy" />
-                  <span className="store-card-body">
-                    <span className="store-badge">{store.badge}</span>
-                    <strong>{store.name}</strong>
-                    <small>{store.address}</small>
-                    <span className="store-card-more">看新據點介紹 →</span>
-                  </span>
-                </Link>
-              ))}
+              <StoreSpotlight stores={featuredStores} />
             </div>
             <div className="regions">
               {regions.map((region) => (

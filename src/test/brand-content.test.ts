@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import {
   company,
   cashPlan,
+  featuredStores,
   contact,
   faq,
   creed,
@@ -96,5 +97,13 @@ describe("brand content", () => {
 
   it("has four mascots", () => {
     expect(mascotGallery).toHaveLength(4);
+  });
+});
+
+describe("featured stores", () => {
+  it("has a unique slug and an address for every store page", () => {
+    const slugs = featuredStores.map((s) => s.slug);
+    expect(new Set(slugs).size).toBe(slugs.length);
+    expect(featuredStores.every((s) => s.address && s.image.startsWith("/img/"))).toBe(true);
   });
 });

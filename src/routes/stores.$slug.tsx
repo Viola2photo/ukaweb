@@ -130,6 +130,14 @@ function StorePage() {
               </a>
             </Button>
           </div>
+          <iframe
+            title={`${store.name}地圖`}
+            className="store-map"
+            src={`https://www.google.com/maps?q=${encodeURIComponent(store.address)}&output=embed&hl=zh-TW`}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
           <p className="store-tags">{store.tags.map((t) => `#${t}`).join(" ")}</p>
         </div>
       </main>

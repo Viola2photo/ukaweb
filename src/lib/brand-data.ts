@@ -360,6 +360,7 @@ export type FeaturedStore = {
   nearby: string;
   hours?: string;
   mapUrl: string;
+  facebookVideoUrl?: string;
   intro: string[];
   signature: string;
   tags: readonly string[];
@@ -379,6 +380,7 @@ export const featuredStores: readonly FeaturedStore[] = [
     mapUrl:
       "https://www.google.com/maps/search/?api=1&query=" +
       encodeURIComponent("台中市西屯區黎明路三段26號"),
+    facebookVideoUrl: "https://www.facebook.com/reel/1399299159082457/",
     intro: [
       "台中的朋友，鱈魚大叔又多一個點啦！這次由海豚和海豚媽（小嬣）一起顧攤。",
       "認識我們，必點冠軍雙拼：搭配芥末沙拉、微辣的黯然銷粉及酸甜黃瓜碎，熱騰騰的鱈花枝、墨魚燒，等你來嚐嚐。",

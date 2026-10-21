@@ -133,6 +133,12 @@ export const products: readonly Product[] = [
   },
 ];
 
+export const menuDownload = {
+  file: img("uka-menu.jpg"),
+  filename: "鱈魚大叔菜單.jpg",
+  label: "下載完整菜單",
+} as const;
+
 export const priceSizes = ["小份", "大份", "特大"] as const;
 export const menuTip = "人氣 No.1 冠軍雙拼推薦吃法：芥末沙拉搭小辣「黯然銷粉」，再加酸甜酸黃瓜。";
 

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
-import { Check, ChevronLeft, ChevronRight, Copy, MapPin, Menu, Phone, X } from "lucide-react";
+import { Check, ChevronLeft, ChevronRight, Copy, Download, MapPin, Menu, Phone, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import {
@@ -12,6 +12,7 @@ import {
   franchiseFootnote,
   franchiseSummary,
   mascotGallery,
+  menuDownload,
   menuTip,
   philosophy,
   creed,
@@ -313,6 +314,16 @@ function Index() {
                   </Button>
                 ))}
                 <p className="menu-tip">{menuTip}</p>
+                <Button variant="brand" asChild className="menu-download">
+                  <a
+                    href={menuDownload.file}
+                    download={menuDownload.filename}
+                    onClick={() => trackEvent("download_menu")}
+                  >
+                    <Download />
+                    {menuDownload.label}
+                  </a>
+                </Button>
               </div>
               <SocialLinks
                 variant="line"

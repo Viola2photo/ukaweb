@@ -10,6 +10,7 @@ import {
   contact,
   flashStalls,
   franchiseFootnote,
+  franchiseVideo,
   franchiseSummary,
   mascotGallery,
   menuDownload,
@@ -19,6 +20,7 @@ import {
   cashPlan,
   faq,
   featuredStores,
+  flavorNote,
   flavors,
   priceSizes,
   privacyPolicy,
@@ -316,6 +318,7 @@ function Index() {
                 ))}
                 <div className="flavors">
                   <h3>口味選擇</h3>
+                  <p className="flavors-note">{flavorNote}</p>
                   <dl>
                     {flavors.map((f) => (
                       <div key={f.label}>
@@ -402,51 +405,48 @@ function Index() {
                   ))}
                 </div>
               </div>
-              <article
-                className={`card step-card rise${step.video ? " has-video" : ""}`}
-                key={stepIndex}
-              >
-                <div>
-                  <div className="n">STEP {stepIndex + 1}</div>
-                  <h3>{step.title}</h3>
-                  <p className="body">{step.body}</p>
+              <div className="card step-card has-video">
+                <div className="step-main rise" key={stepIndex}>
+                  <div className="step-text">
+                    <div className="n">STEP {stepIndex + 1}</div>
+                    <h3>{step.title}</h3>
+                    <p className="body">{step.body}</p>
+                  </div>
+                  <div>
+                    <ul className="checklist">
+                      {step.items.map((item) => (
+                        <li key={item}>
+                          <Check size={20} strokeWidth={3} aria-hidden="true" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                    {step.note && <p className="step-note">{step.note}</p>}
+                    {step.quote && <p className="step-quote">「{step.quote}」</p>}
+                  </div>
+                  <div className="step-actions">
+                    <Button
+                      variant="inkline"
+                      onClick={() => setStepIndex((stepIndex + steps.length - 1) % steps.length)}
+                    >
+                      上一步
+                    </Button>
+                    <Button
+                      variant="ink"
+                      onClick={() => setStepIndex((stepIndex + 1) % steps.length)}
+                    >
+                      下一步
+                    </Button>
+                  </div>
                 </div>
-                <div>
-                  <ul className="checklist">
-                    {step.items.map((item) => (
-                      <li key={item}>
-                        <Check size={20} strokeWidth={3} aria-hidden="true" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                  {step.note && <p className="step-note">{step.note}</p>}
-                  {step.quote && <p className="step-quote">「{step.quote}」</p>}
-                </div>
-                {step.video && (
-                  <FacebookVideo
-                    url={step.video.facebookUrl}
-                    cover={step.video.cover}
-                    coverAlt={step.video.coverAlt}
-                    title={step.video.title}
-                    where="franchise-step"
-                  />
-                )}
-                <div className="step-actions">
-                  <Button
-                    variant="inkline"
-                    onClick={() => setStepIndex((stepIndex + steps.length - 1) % steps.length)}
-                  >
-                    上一步
-                  </Button>
-                  <Button
-                    variant="ink"
-                    onClick={() => setStepIndex((stepIndex + 1) % steps.length)}
-                  >
-                    下一步
-                  </Button>
-                </div>
-              </article>
+                <FacebookVideo
+                  url={franchiseVideo.facebookUrl}
+                  cover={franchiseVideo.cover}
+                  coverAlt={franchiseVideo.coverAlt}
+                  title={franchiseVideo.title}
+                  where="franchise-step"
+                />
+              </div>
               <p className="footnote">{franchiseFootnote}</p>
               <div className="cta-row">
                 <Button variant="paper" asChild>

@@ -1588,19 +1588,31 @@
   display: block;
 }
 .step-card.has-video {
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr) 220px;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  align-items: start;
 }
-.step-card.has-video .fb-video {
-  grid-column: 3;
-  grid-row: 1;
+.step-main {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 40px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .step-main {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+}
+.flavors-note {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: var(--muted-foreground);
 }
 @media (max-width: 900px) {
   .step-card.has-video {
     grid-template-columns: minmax(0, 1fr);
   }
   .step-card.has-video .fb-video {
-    grid-column: 1;
-    grid-row: auto;
     width: min(100%, 260px);
     margin-inline: auto;
   }

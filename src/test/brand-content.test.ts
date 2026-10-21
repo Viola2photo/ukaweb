@@ -153,6 +153,7 @@ describe("late-night stall", () => {
 describe("flavors", () => {
   it("lists the salad and pepper-salt flavors on the menu, in the FAQ and in llms.txt", () => {
     expect(flavors.map((f) => f.label)).toEqual(["沙拉", "椒鹽"]);
+    expect(faq.find((i) => i.q.includes("口味"))?.a).toContain("搭配多種沙拉與椒鹽");
     expect(faq.find((i) => i.q.includes("口味"))?.a).toContain("青花椒鹽");
     expect(readFileSync(resolve(__dirname, "../../public/llms.txt"), "utf8")).toContain("青花椒鹽");
   });

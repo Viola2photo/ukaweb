@@ -138,6 +138,8 @@ export const flavors = [
   { label: "椒鹽", options: ["星廚原味", "黯然銷粉（微辣）", "青花椒鹽"] },
 ] as const;
 
+export const flavorNote = "每份皆可自由選擇、搭配多種沙拉與椒鹽。";
+
 export const flavorSummary = flavors.map((f) => `${f.label}：${f.options.join("、")}`).join("；");
 
 export const menuDownload = {
@@ -235,7 +237,6 @@ export type Step = {
   items: readonly string[];
   note?: string;
   quote?: string;
-  video?: { facebookUrl: string; cover: string; coverAlt: string; title: string };
 };
 
 export const steps: readonly Step[] = [
@@ -243,12 +244,6 @@ export const steps: readonly Step[] = [
     title: "來電了解、現場實察",
     body: "可來電或約時間，現場了解品牌營運狀況、攤位實際營運流程及檢視合約細項。",
     items: ["了解品牌營運狀況", "看攤位實際營運流程", "檢視合約細項"],
-    video: {
-      facebookUrl: "https://www.facebook.com/reel/1071647855702438/",
-      cover: img("video-franchise-intro.jpg"),
-      coverAlt: "鱈魚大叔介紹：一年半 50 間加盟店，鱈魚大叔怎麼做到？",
-      title: "鱈魚大叔加盟介紹影片",
-    },
   },
   {
     title: "加盟方案內容",
@@ -283,6 +278,14 @@ export const steps: readonly Step[] = [
   },
 ];
 
+// One video that explains the whole plan; it stays visible on every step.
+export const franchiseVideo = {
+  facebookUrl: "https://www.facebook.com/reel/1071647855702438/",
+  cover: img("video-franchise-intro.jpg"),
+  coverAlt: "鱈魚大叔介紹：一年半 50 間加盟店，鱈魚大叔怎麼做到？",
+  title: "鱈魚大叔加盟方案完整說明影片",
+} as const;
+
 export const franchiseFootnote =
   "開業時程依實際準備情形；付款日期與合作內容以正式契約為準。首批貨品金額為可銷售金額說明，實際營收與獲利依經營情形而定。";
 
@@ -299,7 +302,7 @@ export const faq = [
   },
   {
     q: "鱈魚大叔有哪些口味可以選？",
-    a: `每份餐點可選沙拉與椒鹽兩類口味，${flavorSummary}。人氣推薦吃法是芥末沙拉搭配微辣的黯然銷粉，再加酸甜黃瓜碎。`,
+    a: `${flavorNote}口味有：${flavorSummary}。人氣推薦吃法是芥末沙拉搭配微辣的黯然銷粉，再加酸甜黃瓜碎。`,
   },
   {
     q: "哪裡可以吃到鱈魚大叔？",
@@ -455,7 +458,7 @@ export function storeFaq(store: FeaturedStore) {
     },
     {
       q: `${store.name}賣什麼？`,
-      a: `招牌是${store.signature}，另有北海鱈花枝、札幌墨魚燒、鮮貝鱈蝦球、牛蒡鱈魚燒，口味可選${flavorSummary}。菜單與價格請看官方網站「招牌好料」。`,
+      a: `招牌是${store.signature}，另有北海鱈花枝、札幌墨魚燒、鮮貝鱈蝦球、牛蒡鱈魚燒，${flavorNote}口味有：${flavorSummary}。菜單與價格請看官方網站「招牌好料」。`,
     },
     {
       q: `${store.name}的營業時間？`,

@@ -29,6 +29,7 @@ import { structuredData } from "@/lib/structured-data";
 import { trackEvent } from "@/lib/analytics";
 import { useCopyText } from "@/hooks/use-copy-text";
 import { SocialLinks } from "@/components/social-links";
+import { FacebookVideo } from "@/components/facebook-video";
 import { StoreSpotlight } from "@/components/store-spotlight";
 
 export const Route = createFileRoute("/")({
@@ -378,7 +379,10 @@ function Index() {
                   ))}
                 </div>
               </div>
-              <article className="card step-card rise" key={stepIndex}>
+              <article
+                className={`card step-card rise${step.video ? " has-video" : ""}`}
+                key={stepIndex}
+              >
                 <div>
                   <div className="n">STEP {stepIndex + 1}</div>
                   <h3>{step.title}</h3>
@@ -396,6 +400,15 @@ function Index() {
                   {step.note && <p className="step-note">{step.note}</p>}
                   {step.quote && <p className="step-quote">「{step.quote}」</p>}
                 </div>
+                {step.video && (
+                  <FacebookVideo
+                    url={step.video.facebookUrl}
+                    cover={step.video.cover}
+                    coverAlt={step.video.coverAlt}
+                    title={step.video.title}
+                    where="franchise-step"
+                  />
+                )}
                 <div className="step-actions">
                   <Button
                     variant="inkline"

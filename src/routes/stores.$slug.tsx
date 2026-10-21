@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { useState } from "react";
-import { ArrowLeft, Clock, MapPin, Phone, Play } from "lucide-react";
+import { ArrowLeft, Clock, MapPin, Phone } from "lucide-react";
+import { FacebookVideo } from "@/components/facebook-video";
 import { Button } from "@/components/ui/button";
 import {
   brandImages,
@@ -49,7 +49,6 @@ export const Route = createFileRoute("/stores/$slug")({
 
 function StorePage() {
   const { store } = Route.useLoaderData();
-  const [playing, setPlaying] = useState(false);
   const video = store.facebookVideoUrl;
   const others = featuredStores.filter((o) => o.slug !== store.slug);
 
@@ -73,36 +72,16 @@ function StorePage() {
 
       <main className="container-brand store-main">
         <div className="store-cover">
-          {video && playing ? (
-            <iframe
+          {video ? (
+            <FacebookVideo
+              url={video}
+              cover={store.image}
+              coverAlt={store.imageAlt}
               title={`${store.name}介紹影片`}
-              src={`https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(video)}&show_text=false&width=360`}
-              className="store-video"
-              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-              allowFullScreen
+              where={`store-${store.slug}`}
             />
           ) : (
-            <>
-              <img src={store.image} alt={store.imageAlt} />
-              {video && (
-                <button
-                  type="button"
-                  className="store-play"
-                  onClick={() => {
-                    setPlaying(true);
-                    trackEvent("play_store_video", { location: `store-${store.slug}` });
-                  }}
-                >
-                  <Play size={20} aria-hidden="true" />
-                  播放介紹影片
-                </button>
-              )}
-            </>
-          )}
-          {video && (
-            <a className="store-video-link" href={video} target="_blank" rel="noreferrer">
-              在 Facebook 觀看影片
-            </a>
+            <img src={store.image} alt={store.imageAlt} />
           )}
         </div>
         <div className="store-body">

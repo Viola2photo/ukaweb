@@ -222,6 +222,7 @@ export type Step = {
   items: readonly string[];
   note?: string;
   quote?: string;
+  video?: { facebookUrl: string; cover: string; coverAlt: string; title: string };
 };
 
 export const steps: readonly Step[] = [
@@ -229,6 +230,12 @@ export const steps: readonly Step[] = [
     title: "來電了解、現場實察",
     body: "可來電或約時間，現場了解品牌營運狀況、攤位實際營運流程及檢視合約細項。",
     items: ["了解品牌營運狀況", "看攤位實際營運流程", "檢視合約細項"],
+    video: {
+      facebookUrl: "https://www.facebook.com/reel/1071647855702438/",
+      cover: img("video-franchise-intro.jpg"),
+      coverAlt: "鱈魚大叔介紹：一年半 50 間加盟店，鱈魚大叔怎麼做到？",
+      title: "鱈魚大叔加盟介紹影片",
+    },
   },
   {
     title: "加盟方案內容",

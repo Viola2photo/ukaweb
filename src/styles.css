@@ -1609,3 +1609,37 @@
 .menu-download {
   margin-top: 14px;
 }
+
+.flavors {
+  margin-top: 18px;
+  padding: 14px 16px;
+  background: var(--paper);
+  border-radius: 14px;
+}
+.flavors h3 {
+  margin: 0 0 8px;
+  font-family: var(--font-serif);
+  font-weight: 900;
+  font-size: 18px;
+}
+.flavors dl {
+  margin: 0;
+  display: grid;
+  gap: 6px;
+}
+.flavors dl > div {
+  display: flex;
+  gap: 12px;
+  font-size: 15px;
+  line-height: 1.7;
+}
+.flavors dt {
+  flex: none;
+  min-width: 2.5em;
+  font-weight: 900;
+  color: var(--primary);
+}
+.flavors dd {
+  margin: 0;
+  font-weight: 500;
+}

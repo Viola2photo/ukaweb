@@ -133,6 +133,13 @@ export const products: readonly Product[] = [
   },
 ];
 
+export const flavors = [
+  { label: "沙拉", options: ["原味", "芥末", "蜂蜜"] },
+  { label: "椒鹽", options: ["星廚原味", "黯然銷粉（微辣）", "青花椒鹽"] },
+] as const;
+
+export const flavorSummary = flavors.map((f) => `${f.label}：${f.options.join("、")}`).join("；");
+
 export const menuDownload = {
   file: img("uka-menu.jpg"),
   filename: "鱈魚大叔菜單.jpg",
@@ -291,6 +298,10 @@ export const faq = [
     a: "五款招牌：冠軍雙拼、北海鱈花枝、札幌墨魚燒、鮮貝鱈蝦球、牛蒡鱈魚燒，菜單與價格請看本頁「招牌好料」。",
   },
   {
+    q: "鱈魚大叔有哪些口味可以選？",
+    a: `每份餐點可選沙拉與椒鹽兩類口味，${flavorSummary}。人氣推薦吃法是芥末沙拉搭配微辣的黯然銷粉，再加酸甜黃瓜碎。`,
+  },
+  {
     q: "哪裡可以吃到鱈魚大叔？",
     a: "在北、中、南、東各地夜市據點，每週固定日與地點請看本頁「據點」；另有時間不固定的臨時快閃攤。出發前歡迎先來電確認。",
   },
@@ -444,7 +455,7 @@ export function storeFaq(store: FeaturedStore) {
     },
     {
       q: `${store.name}賣什麼？`,
-      a: `招牌是${store.signature}，另有北海鱈花枝、札幌墨魚燒、鮮貝鱈蝦球、牛蒡鱈魚燒，菜單與價格請看官方網站「招牌好料」。`,
+      a: `招牌是${store.signature}，另有北海鱈花枝、札幌墨魚燒、鮮貝鱈蝦球、牛蒡鱈魚燒，口味可選${flavorSummary}。菜單與價格請看官方網站「招牌好料」。`,
     },
     {
       q: `${store.name}的營業時間？`,

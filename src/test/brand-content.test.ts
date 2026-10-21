@@ -6,6 +6,7 @@ import {
   company,
   cashPlan,
   featuredStores,
+  flavors,
   contact,
   faq,
   creed,
@@ -146,5 +147,13 @@ describe("late-night stall", () => {
     expect(featuredStores.find((s) => s.slug === "taichung-liming")?.hours).toBe(
       "營業時間 17:00–03:30",
     );
+  });
+});
+
+describe("flavors", () => {
+  it("lists the salad and pepper-salt flavors on the menu, in the FAQ and in llms.txt", () => {
+    expect(flavors.map((f) => f.label)).toEqual(["沙拉", "椒鹽"]);
+    expect(faq.find((i) => i.q.includes("口味"))?.a).toContain("青花椒鹽");
+    expect(readFileSync(resolve(__dirname, "../../public/llms.txt"), "utf8")).toContain("青花椒鹽");
   });
 });

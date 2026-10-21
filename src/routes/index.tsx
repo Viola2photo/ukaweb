@@ -19,6 +19,7 @@ import {
   cashPlan,
   faq,
   featuredStores,
+  flavors,
   priceSizes,
   privacyPolicy,
   products,
@@ -313,6 +314,17 @@ function Index() {
                     ))}
                   </Button>
                 ))}
+                <div className="flavors">
+                  <h3>口味選擇</h3>
+                  <dl>
+                    {flavors.map((f) => (
+                      <div key={f.label}>
+                        <dt>{f.label}</dt>
+                        <dd>{f.options.join("／")}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
                 <p className="menu-tip">{menuTip}</p>
                 <Button variant="brand" asChild className="menu-download">
                   <a

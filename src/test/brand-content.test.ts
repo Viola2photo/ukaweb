@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 
 import {
@@ -12,7 +14,9 @@ import {
   products,
   regions,
   steps,
+  storeFaq,
 } from "@/lib/brand-data";
+import { storeStructuredData } from "@/lib/structured-data";
 
 describe("brand content", () => {
   it("answers the common questions with the confirmed facts", () => {
@@ -105,5 +109,32 @@ describe("featured stores", () => {
     const slugs = featuredStores.map((s) => s.slug);
     expect(new Set(slugs).size).toBe(slugs.length);
     expect(featuredStores.every((s) => s.address && s.image.startsWith("/img/"))).toBe(true);
+  });
+});
+
+describe("store pages are discoverable", () => {
+  const root = resolve(__dirname, "../..");
+  const sitemap = readFileSync(resolve(root, "public/sitemap.xml"), "utf8");
+  const llms = readFileSync(resolve(root, "public/llms.txt"), "utf8");
+
+  it("lists every store in the sitemap and llms.txt", () => {
+    for (const store of featuredStores) {
+      expect(sitemap).toContain(`https://ukaport.com/stores/${store.slug}`);
+      expect(llms).toContain(`https://ukaport.com/stores/${store.slug}`);
+    }
+  });
+
+  it("gives every store a full address, answers and valid JSON-LD", () => {
+    for (const store of featuredStores) {
+      expect(store.address).toContain(store.city + store.district);
+      expect(storeFaq(store).length).toBeGreaterThanOrEqual(3);
+      const graph = storeStructuredData(store)["@graph"];
+      expect(graph.map((n) => n["@type"])).toEqual([
+        "FoodEstablishment",
+        "BreadcrumbList",
+        "FAQPage",
+      ]);
+      expect(() => JSON.parse(JSON.stringify(storeStructuredData(store)))).not.toThrow();
+    }
   });
 });

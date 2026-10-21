@@ -356,8 +356,12 @@ export type FeaturedStore = {
   badge: string;
   image: string;
   imageAlt: string;
+  city: string;
+  district: string;
   address: string;
   nearby: string;
+  directions?: string;
+  delivery?: string;
   hours?: string;
   mapUrl: string;
   facebookVideoUrl?: string;
@@ -374,6 +378,8 @@ export const featuredStores: readonly FeaturedStore[] = [
     badge: "最新加盟",
     image: img("store-taichung-liming.jpg"),
     imageAlt: "鱈魚大叔在台中黎明路新加盟點位的攤位前介紹",
+    city: "台中市",
+    district: "南屯區",
     address: "台中市南屯區黎明路三段26號",
     nearby: "宏香火雞肉飯旁（原宏佳），鄰近朝馬",
     hours: "營業時間 17:00–03:00",
@@ -389,4 +395,53 @@ export const featuredStores: readonly FeaturedStore[] = [
     signature: "冠軍雙拼",
     tags: ["鱈魚大叔", "台中", "黎明路", "新據點", "逢甲"],
   },
+  {
+    slug: "taichung-donghai",
+    name: "台中東海店",
+    badge: "最新加盟",
+    image: img("p-duo.jpg"),
+    imageAlt: "鱈魚大叔冠軍雙拼，鱈花枝與墨魚燒",
+    city: "台中市",
+    district: "西屯區",
+    address: "台中市西屯區遊園南路143巷12號",
+    nearby: "東海商圈遊園南路143巷內，看到鱈魚大叔的大型餐點招牌就到了",
+    directions:
+      "從「台灣大道」方向進入遊園南路，再找「遊園南路143巷」。巷內不是整排店面的商圈，看到鱈魚大叔的大型餐點招牌就到了。",
+    delivery: "現場提供 Uber Eats 外送",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=" +
+      encodeURIComponent("台中市西屯區遊園南路143巷12號"),
+    facebookVideoUrl: "https://www.facebook.com/reel/2261364914628414/",
+    intro: [
+      "東海的朋友注意，鱈魚大叔把香味飄進巷子裡了！這次的新攤位不在熱鬧大馬路邊，而是「一轉進去才發現原來這裡藏了好料」的地方。",
+      "整面超大鱈魚料理招牌非常醒目，看到雙拼、鱈花枝、墨魚燒的照片，就代表你找對了。",
+      "外皮炸得金黃酥脆，裡面是紮實的海鮮口感。想吃點有儀式感的下午茶、下課點心，或只是今天很需要一份炸物安慰，都可以來東海商圈找美味。不想出門也沒關係，現場有 Uber Eats，讓鱈魚大叔自己游去你家。",
+    ],
+    signature: "冠軍雙拼",
+    tags: ["東海商圈", "鱈魚大叔", "台中", "加盟"],
+  },
 ];
+
+// Questions answered on every store page and in its FAQPage JSON-LD.
+export function storeFaq(store: FeaturedStore) {
+  const items: { q: string; a: string }[] = [
+    {
+      q: `鱈魚大叔${store.name}在哪裡？`,
+      a: `${store.address}。${store.directions ?? store.nearby}。`,
+    },
+    {
+      q: `${store.name}賣什麼？`,
+      a: `招牌是${store.signature}，另有北海鱈花枝、札幌墨魚燒、鮮貝鱈蝦球、牛蒡鱈魚燒，菜單與價格請看官方網站「招牌好料」。`,
+    },
+    {
+      q: `${store.name}的營業時間？`,
+      a: store.hours
+        ? `${store.hours}。實際時間依現場狀況調整，出發前歡迎來電 ${contact.phone} 確認。`
+        : `通常營業 15:00–23:00，實際時間依現場狀況調整，出發前歡迎來電 ${contact.phone} 確認。`,
+    },
+  ];
+  if (store.delivery) {
+    items.push({ q: `${store.name}可以外送嗎？`, a: `${store.delivery}。` });
+  }
+  return items;
+}

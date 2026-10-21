@@ -2,7 +2,15 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useState } from "react";
 import { ArrowLeft, Clock, MapPin, Phone, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { brandImages, company, contact, featuredStores, siteUrl } from "@/lib/brand-data";
+import {
+  brandImages,
+  company,
+  contact,
+  featuredStores,
+  siteUrl,
+  storeFaq,
+} from "@/lib/brand-data";
+import { storeStructuredData, storeUrl } from "@/lib/structured-data";
 import { trackEvent } from "@/lib/analytics";
 
 export const Route = createFileRoute("/stores/$slug")({
@@ -14,20 +22,26 @@ export const Route = createFileRoute("/stores/$slug")({
   head: ({ loaderData }) => {
     const store = loaderData?.store;
     if (!store) return {};
-    const title = `${store.name}｜鱈魚大叔 新據點`;
-    const description = `${store.address}，${store.nearby}。${store.intro[1] ?? ""}`;
-    const url = `${siteUrl}stores/${store.slug}`;
+    const title = `${store.name}｜${store.district}鱈魚大叔 地址・營業時間・菜單`;
+    const description = `鱈魚大叔${store.name}：${store.address}。${store.nearby}。招牌${store.signature}、鱈花枝、墨魚燒，${store.hours ?? "歡迎先來電確認營業時間"}。`;
+    const url = storeUrl(store);
     return {
       meta: [
         { title },
         { name: "description", content: description },
+        { property: "og:type", content: "website" },
         { property: "og:title", content: title },
         { property: "og:description", content: description },
         { property: "og:url", content: url },
-        { property: "og:image", content: `${siteUrl.slice(0, -1)}${store.image}` },
+        { property: "og:image", content: `${siteUrl}${store.image.slice(1)}` },
+        { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: title },
+        { name: "twitter:description", content: description },
       ],
       links: [{ rel: "canonical", href: url }],
+      scripts: [
+        { type: "application/ld+json", children: JSON.stringify(storeStructuredData(store)) },
+      ],
     };
   },
   component: StorePage,
@@ -37,6 +51,7 @@ function StorePage() {
   const { store } = Route.useLoaderData();
   const [playing, setPlaying] = useState(false);
   const video = store.facebookVideoUrl;
+  const others = featuredStores.filter((o) => o.slug !== store.slug);
 
   return (
     <div className="brand-site store-page">
@@ -113,6 +128,13 @@ function StorePage() {
               {p}
             </p>
           ))}
+          {store.directions && (
+            <>
+              <h2 className="store-h2">怎麼去</h2>
+              <p className="store-text">{store.directions}</p>
+            </>
+          )}
+          {store.delivery && <p className="store-text">{store.delivery}。</p>}
           <div className="cta-row">
             <Button variant="brand" asChild>
               <a
@@ -138,6 +160,29 @@ function StorePage() {
             referrerPolicy="no-referrer-when-downgrade"
             allowFullScreen
           />
+          <h2 className="store-h2">{store.name}常見問題</h2>
+          <div className="faq-list">
+            {storeFaq(store).map((item) => (
+              <details key={item.q} className="card faq-item">
+                <summary>{item.q}</summary>
+                <p>{item.a}</p>
+              </details>
+            ))}
+          </div>
+          {others.length > 0 && (
+            <>
+              <h2 className="store-h2">其他新加盟點位</h2>
+              <ul className="store-others">
+                {others.map((o) => (
+                  <li key={o.slug}>
+                    <Link to="/stores/$slug" params={{ slug: o.slug }}>
+                      {o.name}｜{o.address}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
           <p className="store-tags">{store.tags.map((t) => `#${t}`).join(" ")}</p>
         </div>
       </main>

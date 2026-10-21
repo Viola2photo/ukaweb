@@ -160,7 +160,7 @@ export const regions: readonly Region[] = [
     name: "中部",
     items: [
       { text: "銅鑼夜市" },
-      { text: "台中黎明路三段26號", hours: "營業時間 17:00–03:00" },
+      { text: "台中黎明路三段26號", hours: "營業時間 17:00–03:30" },
       { text: "中港夜市D63" },
       { text: "台中西區中美街241號" },
       { text: "梧棲區雲集街33號" },
@@ -382,7 +382,7 @@ export const featuredStores: readonly FeaturedStore[] = [
     district: "南屯區",
     address: "台中市南屯區黎明路三段26號",
     nearby: "宏香火雞肉飯旁（原宏佳），鄰近朝馬",
-    hours: "營業時間 17:00–03:00",
+    hours: "營業時間 17:00–03:30",
     mapUrl:
       "https://www.google.com/maps/search/?api=1&query=" +
       encodeURIComponent("台中市南屯區黎明路三段26號"),
@@ -399,8 +399,8 @@ export const featuredStores: readonly FeaturedStore[] = [
     slug: "taichung-donghai",
     name: "台中東海店",
     badge: "最新加盟",
-    image: img("p-duo.jpg"),
-    imageAlt: "鱈魚大叔冠軍雙拼，鱈花枝與墨魚燒",
+    image: img("store-taichung-donghai.jpg"),
+    imageAlt: "鱈魚大叔在台中東海商圈新加盟點位的大型招牌前介紹",
     city: "台中市",
     district: "西屯區",
     address: "台中市西屯區遊園南路143巷12號",

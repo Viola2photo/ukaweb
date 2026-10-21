@@ -138,3 +138,13 @@ describe("store pages are discoverable", () => {
     }
   });
 });
+
+describe("late-night stall", () => {
+  it("shows 台中黎明路 as open 17:00–03:30 on the list and its store page", () => {
+    const item = regions.flatMap((r) => r.items).find((i) => i.text.includes("黎明路三段26號"));
+    expect(item?.hours).toBe("營業時間 17:00–03:30");
+    expect(featuredStores.find((s) => s.slug === "taichung-liming")?.hours).toBe(
+      "營業時間 17:00–03:30",
+    );
+  });
+});

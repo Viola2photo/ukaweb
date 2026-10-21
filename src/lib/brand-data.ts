@@ -69,7 +69,7 @@ export const products: readonly Product[] = [
     name: "冠軍雙拼",
     subtitle: "兩種海味・一次滿足",
     description:
-      "北海鱈花枝＋札幌墨魚燒，一次吃到兩種海味。推薦芥末沙拉搭配小辣「黯然銷粉」，再加酸甜酸黃瓜，冠軍搭配一次愛上。",
+      "北海鱈花枝＋札幌墨魚燒，一次吃到兩種海味。推薦芥末沙拉搭配微辣「黯然銷粉」，再加酸甜酸黃瓜，冠軍搭配一次愛上。",
     image: img("p-duo.jpg"),
     alt: "冠軍雙拼",
     prices: [100, 150, 200],
@@ -149,7 +149,7 @@ export const menuDownload = {
 } as const;
 
 export const priceSizes = ["小份", "大份", "特大"] as const;
-export const menuTip = "人氣 No.1 冠軍雙拼推薦吃法：芥末沙拉搭小辣「黯然銷粉」，再加酸甜酸黃瓜。";
+export const menuTip = "人氣 No.1 冠軍雙拼推薦吃法：芥末沙拉搭微辣「黯然銷粉」，再加酸甜酸黃瓜。";
 
 export type Location = { text: string; day?: string; hours?: string };
 export type Region = { name: string; items: readonly Location[] };

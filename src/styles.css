@@ -43,6 +43,7 @@
   --wave: #b51f26;
   --primary-dark: #7e1418;
   --gold: #e9b44c;
+  --line-green: #06c755;
   --muted-foreground: #5a4a42;
   --border: #c9b48f;
   --shadow-hard: 8px 8px 0 var(--ink);
@@ -1678,4 +1679,13 @@
   font-size: 14px;
   font-weight: 700;
   line-height: 1.6;
+}
+
+.brand-button.line-oa-button {
+  background: var(--line-green);
+  color: #fff;
+  border-color: var(--ink);
+}
+.brand-button.line-oa-button:hover {
+  background: #05a648;
 }

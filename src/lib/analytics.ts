@@ -40,7 +40,8 @@ export type TrackedEvent =
   | "franchise_step"
   | "click_social"
   | "play_store_video"
-  | "download_menu";
+  | "download_menu"
+  | "click_line_oa";
 
 export function trackEvent(name: TrackedEvent, params?: Record<string, string | number>) {
   window.gtag?.("event", name, params);

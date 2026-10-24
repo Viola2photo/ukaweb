@@ -24,7 +24,7 @@ export const structuredData = {
       logo: `${siteUrl}img/uncle-sticker.png`,
       telephone: contact.phone,
       slogan: "鱈魚大叔用心用感情 創造好料理",
-      sameAs: contact.social.map((s) => s.href),
+      sameAs: [...contact.social.map((s) => s.href), contact.lineUrl],
     },
     {
       "@type": "WebSite",

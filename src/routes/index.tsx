@@ -638,6 +638,16 @@ function Index() {
                 </a>
               </Button>
               {copyButton("ink")}
+              <Button variant="brand" asChild className="line-oa-button">
+                <a
+                  href={contact.lineUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => trackEvent("click_line_oa", { location: "contact" })}
+                >
+                  加入官方 LINE
+                </a>
+              </Button>
             </div>
             <p className="line-id">電話 {contact.phone}（也是 LINE ID）</p>
             <div className="copy-feedback" role="status" aria-live="polite">
@@ -667,7 +677,7 @@ function Index() {
                 height={180}
                 loading="lazy"
               />
-              <figcaption>用 LINE 掃描 QR Code，加入鱈魚大叔官方 LINE</figcaption>
+              <figcaption>電腦版請用手機 LINE 掃描加入；手機請點上方「加入官方 LINE」</figcaption>
             </figure>
           </div>
         </section>

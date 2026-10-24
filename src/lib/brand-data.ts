@@ -429,15 +429,15 @@ export const featuredStores: readonly FeaturedStore[] = [
     image: img("store-taichung-donghai.jpg"),
     imageAlt: "鱈魚大叔在台中東海商圈新加盟點位的大型招牌前介紹",
     city: "台中市",
-    district: "西屯區",
-    address: "台中市西屯區遊園南路143巷12號",
+    district: "龍井區",
+    address: "台中市龍井區遊園南路143巷12號",
     nearby: "東海商圈遊園南路143巷內，看到鱈魚大叔的大型餐點招牌就到了",
     directions:
       "從「台灣大道」方向進入遊園南路，再找「遊園南路143巷」。巷內不是整排店面的商圈，看到鱈魚大叔的大型餐點招牌就到了。",
     delivery: "現場提供 Uber Eats 外送",
     mapUrl:
       "https://www.google.com/maps/search/?api=1&query=" +
-      encodeURIComponent("台中市西屯區遊園南路143巷12號"),
+      encodeURIComponent("台中市龍井區遊園南路143巷12號"),
     facebookVideoUrl: "https://www.facebook.com/reel/2261364914628414/",
     intro: [
       "東海的朋友注意，鱈魚大叔把香味飄進巷子裡了！這次的新攤位不在熱鬧大馬路邊，而是「一轉進去才發現原來這裡藏了好料」的地方。",

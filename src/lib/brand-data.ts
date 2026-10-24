@@ -463,8 +463,8 @@ export function storeFaq(store: FeaturedStore) {
     {
       q: `${store.name}的營業時間？`,
       a: store.hours
-        ? `${store.hours}。實際時間依現場狀況調整，出發前歡迎來電 ${contact.phone} 確認。`
-        : `通常營業 15:00–23:00，實際時間依現場狀況調整，出發前歡迎來電 ${contact.phone} 確認。`,
+        ? `${store.hours}。實際時間依現場狀況調整。`
+        : `通常營業 15:00–23:00，實際時間依現場狀況調整。`,
     },
   ];
   if (store.delivery) {

@@ -1,17 +1,15 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, Clock, MapPin, Phone } from "lucide-react";
+import { ArrowLeft, Clock, MapPin } from "lucide-react";
 import { FacebookVideo } from "@/components/facebook-video";
 import { Button } from "@/components/ui/button";
 import {
   brandImages,
   company,
-  contact,
   featuredStores,
   siteUrl,
   storeFaq,
 } from "@/lib/brand-data";
 import { storeStructuredData, storeUrl } from "@/lib/structured-data";
-import { trackEvent } from "@/lib/analytics";
 
 export const Route = createFileRoute("/stores/$slug")({
   loader: ({ params }) => {
@@ -116,15 +114,6 @@ function StorePage() {
           {store.delivery && <p className="store-text">{store.delivery}。</p>}
           <div className="cta-row">
             <Button variant="brand" asChild>
-              <a
-                href={contact.phoneHref}
-                onClick={() => trackEvent("click_call", { location: `store-${store.slug}` })}
-              >
-                <Phone />
-                來電 {contact.phone}
-              </a>
-            </Button>
-            <Button variant="paper" asChild>
               <a href={store.mapUrl} target="_blank" rel="noreferrer">
                 <MapPin />
                 開啟地圖導航

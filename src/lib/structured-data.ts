@@ -68,7 +68,6 @@ export function storeStructuredData(store: FeaturedStore) {
         url,
         image: `${siteUrl}${store.image.slice(1)}`,
         description: store.intro.join(""),
-        telephone: contact.phone,
         servesCuisine: ["台灣小吃", "魚漿炸物", "海鮮"],
         hasMenu: `${siteUrl}#products`,
         hasMap: store.mapUrl,

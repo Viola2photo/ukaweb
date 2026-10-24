@@ -23,6 +23,7 @@ import {
   flavorNote,
   flavors,
   priceSizes,
+  productVideo,
   privacyPolicy,
   products,
   regions,
@@ -237,7 +238,8 @@ function Index() {
                   </Button>
                 ))}
               </div>
-              <article className="card detail" key={`${product.id}-${crossOn}`}>
+              <div className="card detail has-video">
+              <article className="detail-main" key={`${product.id}-${crossOn}`}>
                 <div className="detail-photo">
                   <img className="photo pop" src={photo} alt={photoAlt} />
                   {product.tag && <span className="tag rise">{product.tag}</span>}
@@ -283,6 +285,14 @@ function Index() {
                   </div>
                 </div>
               </article>
+                <FacebookVideo
+                  url={productVideo.facebookUrl}
+                  cover={productVideo.cover}
+                  coverAlt={productVideo.coverAlt}
+                  title={productVideo.title}
+                  where="menu-detail"
+                />
+              </div>
 
               <div className="card menu-card">
                 <div className="menu-head">

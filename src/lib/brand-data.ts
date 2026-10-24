@@ -150,6 +150,14 @@ export const menuDownload = {
   label: "下載完整菜單",
 } as const;
 
+// One tasting video shown beside the product details; it stays while the product changes.
+export const productVideo = {
+  facebookUrl: "https://www.facebook.com/reel/1762819641460488/",
+  cover: img("video-tasting.jpg"),
+  coverAlt: "鱈魚大叔產品試吃影片：別人說好吃才算，創造穩定長期財",
+  title: "鱈魚大叔產品試吃影片",
+} as const;
+
 export const priceSizes = ["小份", "大份", "特大"] as const;
 export const menuTip = "人氣 No.1 冠軍雙拼推薦吃法：芥末沙拉搭微辣「黯然銷粉」，再加酸甜酸黃瓜。";
 

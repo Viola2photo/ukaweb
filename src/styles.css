@@ -466,6 +466,20 @@
   padding: 28px;
   margin-top: 8px;
 }
+.detail.has-video {
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: 32px;
+  align-items: start;
+}
+.detail-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 40px;
+  align-items: center;
+}
+.detail.has-video .fb-video {
+  align-self: center;
+}
 .detail-photo {
   position: relative;
 }
@@ -1247,6 +1261,18 @@
   }
 }
 @media (max-width: 900px) {
+  .detail-main {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .detail.has-video {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+  .detail.has-video .fb-video {
+    width: min(100%, 260px);
+    margin-inline: auto;
+  }
   .detail,
   .step-card,
   .two,

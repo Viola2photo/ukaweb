@@ -31,6 +31,7 @@ export const contact = {
 
 export const brandImages = {
   logo: img("uncle-sticker.png"),
+  lineQr: img("line-qrcode.png"),
   chef: img("uncle-chef.jpg"),
 };
 

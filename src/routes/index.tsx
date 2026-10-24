@@ -659,6 +659,16 @@ function Index() {
               </label>
             )}
             <SocialLinks variant="line" place="contact" className="social-center" />
+            <figure className="line-qr">
+              <img
+                src={brandImages.lineQr}
+                alt="鱈魚大叔官方 LINE 的 QR Code"
+                width={180}
+                height={180}
+                loading="lazy"
+              />
+              <figcaption>用 LINE 掃描 QR Code，加入鱈魚大叔官方 LINE</figcaption>
+            </figure>
           </div>
         </section>
       </main>

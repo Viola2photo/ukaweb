@@ -18,6 +18,7 @@ import {
   philosophy,
   creed,
   cashPlan,
+  noFees,
   faq,
   featuredStores,
   flavorNote,
@@ -389,6 +390,18 @@ function Index() {
                   </div>
                 </div>
                 <p>{cashPlan.note}</p>
+              </div>
+              <div className="card nofee-card rise">
+                <small>{noFees.label}</small>
+                <ul>
+                  {noFees.items.map((item) => (
+                    <li key={item}>
+                      <Check size={18} strokeWidth={3} aria-hidden="true" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <p>{noFees.note}</p>
               </div>
               <div className="track">
                 <div className="track-line" aria-hidden="true" />

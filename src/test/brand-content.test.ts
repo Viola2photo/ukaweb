@@ -7,6 +7,7 @@ import {
   cashPlan,
   featuredStores,
   flavors,
+  noFees,
   contact,
   faq,
   creed,
@@ -156,5 +157,14 @@ describe("flavors", () => {
     expect(faq.find((i) => i.q.includes("口味"))?.a).toContain("搭配多種沙拉與椒鹽");
     expect(faq.find((i) => i.q.includes("口味"))?.a).toContain("青花椒鹽");
     expect(readFileSync(resolve(__dirname, "../../public/llms.txt"), "utf8")).toContain("青花椒鹽");
+  });
+});
+
+describe("fees that are not charged", () => {
+  it("states the four waived fees on the page data, FAQ and llms.txt", () => {
+    expect(noFees.items).toEqual(["加盟金", "保證金", "簽約金", "續約金"]);
+    expect(faq.find((i) => i.q.includes("加盟金"))?.a).toContain("不收加盟金、保證金、簽約金、續約金");
+    expect(faq.find((i) => i.q.includes("加盟方案"))?.a).toContain("續約金");
+    expect(readFileSync(resolve(__dirname, "../../public/llms.txt"), "utf8")).toContain("續約金");
   });
 });

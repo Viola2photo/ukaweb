@@ -1715,3 +1715,43 @@
 .brand-button.line-oa-button:hover {
   background: #05a648;
 }
+
+.nofee-card {
+  padding: 20px 24px;
+  margin-bottom: 40px;
+  border-radius: 22px;
+  box-shadow: 6px 6px 0 var(--ink);
+}
+.nofee-card small {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+}
+.nofee-card ul {
+  list-style: none;
+  margin: 10px 0 12px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.nofee-card li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  font-family: var(--font-serif);
+  font-weight: 900;
+  font-size: 18px;
+}
+.nofee-card li svg {
+  color: var(--primary);
+}
+.nofee-card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.8;
+}

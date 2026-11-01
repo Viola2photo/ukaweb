@@ -77,7 +77,7 @@ describe("brand content", () => {
       "南投家樂福夜市週三",
       "南崗夜市週四",
       "草鞋墩夜市週五・六・日",
-      "台南武聖 第五排15格週三・五・六",
+      "台南武聖夜市 第五排第15號週三・五・六",
       "屏東煙囪觀光夜市週日",
     ]);
     expect(regions.find((r) => r.name === "東部")?.items.map((i) => i.text)).toContain(

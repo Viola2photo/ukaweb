@@ -625,6 +625,27 @@ export const featuredStores: readonly FeaturedStore[] = [
     signature: "冠軍雙拼",
     tags: ["鱈魚大叔", "斜槓", "梧棲", "海線", "加盟", "擺攤"],
   },
+  {
+    slug: "taoyuan-tourist",
+    name: "桃園觀光夜市店",
+    image: img("store-taoyuan-tourist.jpg"),
+    imageAlt: "鱈魚大叔在桃園觀光夜市介紹「靠加盟養活一家人」的雙寶媽第二間店",
+    city: "桃園市",
+    district: "桃園區",
+    address: "桃園市桃園區北埔路133號路口（桃園觀光夜市）",
+    nearby: "桃園觀光夜市，北埔路133號路口",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=" +
+      encodeURIComponent("桃園市桃園區北埔路133號"),
+    facebookVideoUrl: "https://www.facebook.com/reel/1573398290498199/",
+    intro: [
+      "下著大雨的夜晚，大叔特地來到桃園觀光夜市，找在這裡擺攤的阿宏！",
+      "即使是下雨天，阿宏依然樂觀面對生活，攤前的購買人數也維持著一定的人潮。這是雙寶媽的第二間店，影片標題說的「靠加盟養活一家人」，就是這份努力的最好寫照。",
+      "阿宏與太太是在桃園與中壢觀光夜市擺攤的正向小夫妻。桃園的朋友逛夜市時，有空請多多捧場，給這對樂觀打拚的小夫妻一點最直接的支持！",
+    ],
+    signature: "冠軍雙拼",
+    tags: ["烏卡港", "鱈魚大叔", "夜市美食", "桃園", "桃園美食", "中壢", "中壢美食"],
+  },
 ];
 
 // Questions answered on every store page and in its FAQPage JSON-LD.

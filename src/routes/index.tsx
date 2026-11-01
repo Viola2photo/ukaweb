@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
 import { Check, ChevronLeft, ChevronRight, Copy, Download, MapPin, Menu, Phone, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -593,6 +593,9 @@ function Index() {
             <div id="stores" className="store-cards">
               <h3 className="store-cards-title">點位故事｜新加入的大叔家夥伴</h3>
               <StoreRotator stores={featuredStores} />
+              <p className="store-all">
+                <Link to="/stores">看全部新加盟點位 →</Link>
+              </p>
             </div>
             <div className="regions">
               {regions.map((region) => (

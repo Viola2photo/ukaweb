@@ -126,6 +126,11 @@ describe("store pages are discoverable", () => {
     }
   });
 
+  it("lists the hub page in the sitemap and llms.txt", () => {
+    expect(sitemap).toContain("https://ukaport.com/stores</loc>");
+    expect(llms).toContain("https://ukaport.com/stores");
+  });
+
   it("gives every store a full address, answers and valid JSON-LD", () => {
     for (const store of featuredStores) {
       if (store.roaming) expect(store.roaming.schedule.length).toBeGreaterThan(0);
@@ -134,6 +139,7 @@ describe("store pages are discoverable", () => {
       const graph = storeStructuredData(store)["@graph"];
       expect(graph.map((n) => n["@type"])).toEqual([
         "FoodEstablishment",
+        "WebPage",
         "BreadcrumbList",
         "FAQPage",
       ]);

@@ -8,11 +8,12 @@ type Props = {
   coverAlt: string;
   title: string;
   where: string;
+  priority?: boolean;
 };
 
 // Shows the cover first and loads the Facebook player only after a tap, so visitors who
 // never press play are not sent to Facebook's embed or tracking scripts.
-export function FacebookVideo({ url, cover, coverAlt, title, where }: Props) {
+export function FacebookVideo({ url, cover, coverAlt, title, where, priority }: Props) {
   const [playing, setPlaying] = useState(false);
 
   return (
@@ -27,7 +28,13 @@ export function FacebookVideo({ url, cover, coverAlt, title, where }: Props) {
         />
       ) : (
         <>
-          <img className="fb-cover" src={cover} alt={coverAlt} loading="lazy" />
+          <img
+            className="fb-cover"
+            src={cover}
+            alt={coverAlt}
+            loading={priority ? "eager" : "lazy"}
+            fetchPriority={priority ? "high" : undefined}
+          />
           <button
             type="button"
             className="store-play"

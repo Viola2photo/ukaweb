@@ -670,6 +670,18 @@ export function storeFaq(store: FeaturedStore) {
           : `通常營業 15:00–23:00，實際時間依現場狀況調整。`,
     },
   ];
+  items.push({
+    q: `${store.name}的價格多少？`,
+    a: `${products
+      .map((p) => `${p.name}小份 ${p.prices[0]} 元、大份 ${p.prices[1]} 元、特大 ${p.prices[2]} 元`)
+      .join("；")}。價格單位為新臺幣。`,
+  });
+  items.push({
+    q: `${store.name}是直營店還是加盟店？`,
+    a: `${store.name}由鱈魚大叔的加盟夥伴經營，品牌營運方為${company.operator}。`,
+  });
+  const plan = faq.find((i) => i.q.includes("加盟方案"));
+  if (plan) items.push({ q: "想加盟鱈魚大叔，有什麼方案？", a: plan.a });
   if (store.delivery) {
     items.push({ q: `${store.name}可以外送嗎？`, a: `${store.delivery}。` });
   }

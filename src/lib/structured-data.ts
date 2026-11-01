@@ -1,5 +1,6 @@
 import {
   company,
+  products,
   contact,
   faq,
   featuredStores,
@@ -7,6 +8,10 @@ import {
   storeFaq,
   type FeaturedStore,
 } from "@/lib/brand-data";
+
+const allPrices = products.flatMap((p) => [...p.prices]);
+export const priceRange = `NT$${Math.min(...allPrices)}–NT$${Math.max(...allPrices)}`;
+export const hubUrl = `${siteUrl}stores`;
 
 export const storeUrl = (store: FeaturedStore) => `${siteUrl}stores/${store.slug}`;
 
@@ -69,6 +74,8 @@ export function storeStructuredData(store: FeaturedStore) {
         image: `${siteUrl}${store.image.slice(1)}`,
         description: store.intro.join(""),
         servesCuisine: ["台灣小吃", "魚漿炸物", "海鮮"],
+        priceRange,
+        keywords: store.tags.join(","),
         hasMenu: `${siteUrl}#products`,
         hasMap: store.mapUrl,
         parentOrganization: { "@id": `${siteUrl}#organization` },
@@ -85,10 +92,24 @@ export function storeStructuredData(store: FeaturedStore) {
         sameAs: store.facebookVideoUrl ? [store.facebookVideoUrl] : undefined,
       },
       {
+        "@type": "WebPage",
+        "@id": url,
+        url,
+        name: `${store.name}｜${company.brand}`,
+        inLanguage: "zh-TW",
+        isPartOf: { "@id": `${siteUrl}#website` },
+        about: { "@id": `${url}#store` },
+        primaryImageOfPage: {
+          "@type": "ImageObject",
+          url: `${siteUrl}${store.image.slice(1)}`,
+        },
+      },
+      {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: company.brand, item: siteUrl },
-          { "@type": "ListItem", position: 2, name: store.name, item: url },
+          { "@type": "ListItem", position: 2, name: "新加盟點位", item: hubUrl },
+          { "@type": "ListItem", position: 3, name: store.name, item: url },
         ],
       },
       {
@@ -98,6 +119,39 @@ export function storeStructuredData(store: FeaturedStore) {
           name: item.q,
           acceptedAnswer: { "@type": "Answer", text: item.a },
         })),
+      },
+    ],
+  };
+}
+
+// JSON-LD for the page that lists every store.
+export function hubStructuredData() {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": hubUrl,
+        url: hubUrl,
+        name: `${company.brand}新加盟點位`,
+        inLanguage: "zh-TW",
+        isPartOf: { "@id": `${siteUrl}#website` },
+      },
+      {
+        "@type": "ItemList",
+        itemListElement: featuredStores.map((store, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: store.name,
+          url: storeUrl(store),
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: company.brand, item: siteUrl },
+          { "@type": "ListItem", position: 2, name: "新加盟點位", item: hubUrl },
+        ],
       },
     ],
   };

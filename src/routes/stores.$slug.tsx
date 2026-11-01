@@ -21,7 +21,9 @@ export const Route = createFileRoute("/stores/$slug")({
     const store = loaderData?.store;
     if (!store) return {};
     const title = `${store.name}｜${store.roaming?.area ?? (store.district || store.city)}鱈魚大叔 ${store.roaming ? "每週行程" : "地址"}・營業時間・菜單`;
-    const description = `鱈魚大叔${store.name}：${store.address}。${store.nearby}。招牌${store.signature}、鱈花枝、墨魚燒，${store.hours ?? (store.days ? `營業日${store.days}` : "營業時間依現場狀況")}。`;
+    const description = store.roaming
+      ? `鱈魚大叔${store.name}：${store.roaming.area}跑攤，每週行程${store.roaming.schedule.map((r) => `${r.day}${r.place}`).join("、")}。招牌${store.signature}、鱈花枝、墨魚燒。`
+      : `鱈魚大叔${store.name}：${store.address}。${store.nearby}。招牌${store.signature}、鱈花枝、墨魚燒，${store.hours ?? (store.days ? `營業日${store.days}` : "營業時間依現場狀況")}。`;
     const url = storeUrl(store);
     return {
       meta: [
@@ -61,9 +63,9 @@ function StorePage() {
               <small>UNCLE COD・烏卡港</small>
             </span>
           </Link>
-          <Link to="/" hash="locations" className="store-back">
+          <Link to="/stores" className="store-back">
             <ArrowLeft size={16} aria-hidden="true" />
-            全部據點
+            全部點位
           </Link>
         </div>
       </header>
@@ -77,12 +79,20 @@ function StorePage() {
               coverAlt={store.imageAlt}
               title={`${store.name}介紹影片`}
               where={`store-${store.slug}`}
+              priority
             />
           ) : (
             <img src={store.image} alt={store.imageAlt} />
           )}
         </div>
         <div className="store-body">
+          <nav className="store-crumbs" aria-label="麵包屑">
+            <Link to="/">{company.brand}</Link>
+            <span aria-hidden="true">›</span>
+            <Link to="/stores">新加盟點位</Link>
+            <span aria-hidden="true">›</span>
+            <span aria-current="page">{store.name}</span>
+          </nav>
           <h1 className="section-heading">{store.name}</h1>
           <ul className="store-facts">
             <li>

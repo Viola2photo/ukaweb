@@ -72,13 +72,16 @@ export function storeStructuredData(store: FeaturedStore) {
         hasMenu: `${siteUrl}#products`,
         hasMap: store.mapUrl,
         parentOrganization: { "@id": `${siteUrl}#organization` },
-        address: {
-          "@type": "PostalAddress",
-          addressCountry: "TW",
-          addressRegion: store.city,
-          addressLocality: store.district,
-          streetAddress: store.address.replace(`${store.city}${store.district}`, ""),
-        },
+        areaServed: store.roaming?.area,
+        address: store.roaming
+          ? { "@type": "PostalAddress", addressCountry: "TW", addressRegion: store.city }
+          : {
+              "@type": "PostalAddress",
+              addressCountry: "TW",
+              addressRegion: store.city,
+              addressLocality: store.district,
+              streetAddress: store.address.replace(`${store.city}${store.district}`, ""),
+            },
         sameAs: store.facebookVideoUrl ? [store.facebookVideoUrl] : undefined,
       },
       {

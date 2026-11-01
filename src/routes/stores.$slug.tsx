@@ -20,7 +20,7 @@ export const Route = createFileRoute("/stores/$slug")({
   head: ({ loaderData }) => {
     const store = loaderData?.store;
     if (!store) return {};
-    const title = `${store.name}｜${store.district}鱈魚大叔 地址・營業時間・菜單`;
+    const title = `${store.name}｜${store.roaming?.area ?? store.district}鱈魚大叔 ${store.roaming ? "每週行程" : "地址"}・營業時間・菜單`;
     const description = `鱈魚大叔${store.name}：${store.address}。${store.nearby}。招牌${store.signature}、鱈花枝、墨魚燒，${store.hours ?? (store.days ? `營業日${store.days}` : "營業時間依現場狀況")}。`;
     const url = storeUrl(store);
     return {
@@ -110,6 +110,19 @@ function StorePage() {
               {p}
             </p>
           ))}
+          {store.roaming && (
+            <>
+              <h2 className="store-h2">每週擺攤位置</h2>
+              <ul className="store-schedule">
+                {store.roaming.schedule.map((r) => (
+                  <li key={r.place}>
+                    <span>{r.day}</span>
+                    {r.place}
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
           {store.highlights && (
             <>
               <h2 className="store-h2">新攤位有什麼不一樣？</h2>
@@ -129,21 +142,32 @@ function StorePage() {
           )}
           {store.delivery && <p className="store-text">{store.delivery}。</p>}
           <div className="cta-row">
-            <Button variant="brand" asChild>
-              <a href={store.mapUrl} target="_blank" rel="noreferrer">
-                <MapPin />
-                開啟地圖導航
-              </a>
-            </Button>
+            {store.mapUrl ? (
+              <Button variant="brand" asChild>
+                <a href={store.mapUrl} target="_blank" rel="noreferrer">
+                  <MapPin />
+                  開啟地圖導航
+                </a>
+              </Button>
+            ) : (
+              <Button variant="brand" asChild>
+                <Link to="/" hash="locations">
+                  <MapPin />
+                  看全部據點
+                </Link>
+              </Button>
+            )}
           </div>
-          <iframe
-            title={`${store.name}地圖`}
-            className="store-map"
-            src={`https://www.google.com/maps?q=${encodeURIComponent(store.address)}&output=embed&hl=zh-TW`}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            allowFullScreen
-          />
+          {store.mapUrl && (
+            <iframe
+              title={`${store.name}地圖`}
+              className="store-map"
+              src={`https://www.google.com/maps?q=${encodeURIComponent(store.address)}&output=embed&hl=zh-TW`}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+          )}
           <h2 className="store-h2">{store.name}常見問題</h2>
           <div className="faq-list">
             {storeFaq(store).map((item) => (

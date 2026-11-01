@@ -412,7 +412,8 @@ export type FeaturedStore = {
   delivery?: string;
   hours?: string;
   days?: string;
-  mapUrl: string;
+  mapUrl?: string;
+  roaming?: { area: string; schedule: readonly { place: string; day: string }[] };
   facebookVideoUrl?: string;
   intro: string[];
   highlights?: readonly string[];
@@ -494,22 +495,30 @@ export const featuredStores: readonly FeaturedStore[] = [
     tags: ["鱈魚大叔", "武聖夜市", "台南美食", "台南", "斜槓"],
   },
   {
-    slug: "hsinchu-qingcaohu",
-    name: "新竹青草湖夜市店",
-    image: img("p-flower.jpg"),
-    imageAlt: "鱈魚大叔北海鱈花枝，現點現炸",
-    city: "新竹市",
-    district: "香山區",
-    address: "新竹市香山區青草湖夜市",
-    nearby: "新竹青草湖夜市，看到最亮、最香、前面還有人排隊的那一攤就是",
-    mapUrl:
-      "https://www.google.com/maps/search/?api=1&query=" +
-      encodeURIComponent("新竹市香山區青草湖夜市"),
+    slug: "hsinchu-roaming",
+    name: "新竹區域跑攤 神鵰俠侶情侶檔",
+    image: img("store-hsinchu-roaming.jpg"),
+    imageAlt: "鱈魚大叔介紹新竹跑攤加盟的神鵰俠侶情侶檔",
+    city: "新竹",
+    district: "區域",
+    address: "新竹區域跑攤（每週位置見專頁）",
+    nearby: "新竹區域的夜市與社區，看到最亮、最香、前面還有人排隊的那一攤就是",
+    roaming: {
+      area: "新竹區域",
+      schedule: [
+        { place: "竹中口", day: "週一" },
+        { place: "竹北興希望社區", day: "週二" },
+        { place: "新埔", day: "週三" },
+        { place: "二重埔", day: "週四" },
+        { place: "新庄子", day: "週五" },
+        { place: "竹東", day: "週六" },
+      ],
+    },
     facebookVideoUrl: "https://www.facebook.com/reel/913599771812685/",
     intro: [
       "鱈魚大叔的「神鵰俠侶情侶檔」出沒中！這次來到新竹青草湖夜市，除了介紹全新的攤位，也順便公開弘哲與凱莉一星期的行程。",
       "老闆在影片裡很認真介紹新餐車，但我們知道，大家最後看的還是那一盤炸物。畢竟攤位再漂亮，還是要吃進嘴裡，才算真正認識。",
-      "弘哲與凱莉每週的擺攤位置：竹中口（週一）、竹北興希望社區（週二）、新埔（週三）、二重埔（週四）、新庄子（週五）、竹東（週六）。新竹、竹東與桃園的朋友，記得先把時間和地點存起來！看到最亮、最香，前面還有人排隊的那一攤，不用懷疑，先來找鱈魚大叔就對了！",
+      "新竹、竹東與桃園的朋友，記得先把時間和地點存起來！看到最亮、最香，前面還有人排隊的那一攤，不用懷疑，先來找鱈魚大叔就對了！",
     ],
     highlights: [
       "全新可拆式兩截餐車，整體更穩、更好看",
@@ -543,7 +552,9 @@ export function storeFaq(store: FeaturedStore) {
   const items: { q: string; a: string }[] = [
     {
       q: `鱈魚大叔${store.name}在哪裡？`,
-      a: `${store.address}。${store.directions ?? store.nearby}。`,
+      a: store.roaming
+        ? `${store.roaming.area}跑攤，位置不固定。每週行程：${store.roaming.schedule.map((r) => `${r.place}（${r.day}）`).join("、")}。實際出攤情況可能依天候及夜市安排調整。`
+        : `${store.address}。${store.directions ?? store.nearby}。`,
     },
     {
       q: `${store.name}賣什麼？`,

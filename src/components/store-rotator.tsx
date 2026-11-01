@@ -3,6 +3,15 @@ import { useEffect, useState } from "react";
 import type { FeaturedStore } from "@/lib/brand-data";
 
 const ROTATE_MS = 7000;
+const MAX_COLUMNS = 3;
+
+// Same breakpoints as the CSS: 3 cards on wide screens, 2 on tablets, 1 on phones.
+function columnsNow() {
+  if (typeof window === "undefined") return 1;
+  if (window.matchMedia("(min-width: 1024px)").matches) return 3;
+  if (window.matchMedia("(min-width: 640px)").matches) return 2;
+  return 1;
+}
 
 function shuffle<T>(items: readonly T[], avoidFirst?: T): T[] {
   const list = [...items];
@@ -14,11 +23,13 @@ function shuffle<T>(items: readonly T[], avoidFirst?: T): T[] {
   return list;
 }
 
-// One store card at a time, in a random order that changes on a fixed timer.
-// The server and the first client render use the given order; the shuffle runs after mount.
+// Wide screens show several cards at once and move on a page at a time; phones show one card.
+// Either way the order is random and changes on a fixed timer. The server and the first
+// client render use the given order, and the shuffle runs after mount.
 export function StoreRotator({ stores }: { stores: readonly FeaturedStore[] }) {
   const [order, setOrder] = useState<readonly FeaturedStore[]>(stores);
   const [position, setPosition] = useState(0);
+  const [columns, setColumns] = useState(1);
   const [paused, setPaused] = useState(false);
   const count = order.length;
 
@@ -28,20 +39,37 @@ export function StoreRotator({ stores }: { stores: readonly FeaturedStore[] }) {
   }, [stores]);
 
   useEffect(() => {
-    if (count < 2 || paused) return;
+    const update = () => setColumns(columnsNow());
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  const visible = Math.min(columns, count);
+  const rotates = count > visible;
+
+  useEffect(() => {
+    if (!rotates || paused) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const timer = window.setInterval(() => {
       setPosition((p) => {
-        if (p + 1 < count) return p + 1;
+        const next = p + visible;
+        if (next < count) return next;
         setOrder((current) => shuffle(current, current[count - 1]));
         return 0;
       });
     }, ROTATE_MS);
     return () => window.clearInterval(timer);
-  }, [count, paused]);
+  }, [rotates, paused, visible, count]);
 
-  const store = order[position % Math.max(count, 1)];
-  if (!store) return null;
+  const shown = Array.from({ length: Math.min(MAX_COLUMNS, count) }, (_, i) => {
+    const store = order[(position + i) % count];
+    return store;
+  }).filter((s): s is FeaturedStore => Boolean(s));
+  if (shown.length === 0) return null;
+
+  const pages = Math.ceil(count / visible);
+  const page = Math.floor(position / visible);
 
   return (
     <div
@@ -51,31 +79,34 @@ export function StoreRotator({ stores }: { stores: readonly FeaturedStore[] }) {
       onFocus={() => setPaused(true)}
       onBlur={() => setPaused(false)}
     >
-      <Link
-        key={store.slug}
-        to="/stores/$slug"
-        params={{ slug: store.slug }}
-        className="card store-feature rise"
-      >
-        <img src={store.image} alt="" loading="lazy" />
-        <span className="store-feature-body">
-          <strong>{store.name}</strong>
-          <small>{store.address}</small>
-          {store.days && <small>營業日：{store.days}</small>}
-          <span className="store-feature-text">{store.intro[0]}</span>
-          <span className="store-card-more">看新據點介紹 →</span>
-        </span>
-      </Link>
-      {count > 1 && (
+      <div className="store-rotator-grid" data-count={Math.min(count, MAX_COLUMNS)}>
+        {shown.map((store) => (
+          <Link
+            key={store.slug}
+            to="/stores/$slug"
+            params={{ slug: store.slug }}
+            className="card store-feature rise"
+          >
+            <img src={store.image} alt="" loading="lazy" />
+            <span className="store-feature-body">
+              <strong>{store.name}</strong>
+              <small>{store.address}</small>
+              {store.days && <small>營業日：{store.days}</small>}
+              <span className="store-feature-text">{store.intro[0]}</span>
+              <span className="store-card-more">看新據點介紹 →</span>
+            </span>
+          </Link>
+        ))}
+      </div>
+      {rotates && (
         <div className="store-dots" role="group" aria-label="切換點位故事">
-          {order.map((s, i) => (
+          {Array.from({ length: pages }, (_, i) => (
             <button
-              key={s.slug}
+              key={i}
               type="button"
-              aria-label={`看${s.name}`}
-              aria-current={i === position}
-              className={i === position ? "on" : undefined}
-              onClick={() => setPosition(i)}
+              aria-label={`第 ${i + 1} 組點位`}
+              aria-current={i === page}
+              onClick={() => setPosition(i * visible)}
             />
           ))}
         </div>

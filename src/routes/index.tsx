@@ -36,7 +36,7 @@ import { trackEvent } from "@/lib/analytics";
 import { useCopyText } from "@/hooks/use-copy-text";
 import { SocialLinks } from "@/components/social-links";
 import { FacebookVideo } from "@/components/facebook-video";
-import { StoreSpotlight } from "@/components/store-spotlight";
+import { StoreGrid } from "@/components/store-grid";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -592,7 +592,7 @@ function Index() {
             </p>
             <div id="stores" className="store-cards">
               <h3 className="store-cards-title">點位故事｜新加入的大叔家夥伴</h3>
-              <StoreSpotlight stores={featuredStores} />
+              <StoreGrid stores={featuredStores} />
             </div>
             <div className="regions">
               {regions.map((region) => (

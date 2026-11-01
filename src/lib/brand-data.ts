@@ -412,6 +412,7 @@ export type FeaturedStore = {
   directions?: string;
   delivery?: string;
   hours?: string;
+  days?: string;
   mapUrl: string;
   facebookVideoUrl?: string;
   intro: string[];
@@ -469,7 +470,31 @@ export const featuredStores: readonly FeaturedStore[] = [
     signature: "冠軍雙拼",
     tags: ["東海商圈", "鱈魚大叔", "台中", "加盟"],
   },
+  {
+    slug: "tainan-wusheng",
+    name: "台南武聖夜市店",
+    badge: "最新加盟",
+    image: img("store-tainan-wusheng.jpg"),
+    imageAlt: "鱈魚大叔在台南武聖夜市新加盟點位的攤位前介紹",
+    city: "台南市",
+    district: "中西區",
+    address: "台南市中西區武聖夜市 第五排15格",
+    nearby: "武聖夜市第五排15格",
+    directions: "進入武聖夜市後，找「第五排」第15格的鱈魚大叔攤位。",
+    days: "週三・五・六",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=" +
+      encodeURIComponent("台南市中西區武聖夜市"),
+    facebookVideoUrl: "https://www.facebook.com/reel/1751095429310895/",
+    intro: [
+      "台南的朋友，鱈魚大叔在中西區的武聖夜市又多一個新加盟點位了！",
+      "攤位在武聖夜市第五排第15格，每週三、五、六營業，歡迎夜市逛街的朋友來嚐嚐招牌冠軍雙拼、北海鱈花枝與札幌墨魚燒。",
+    ],
+    signature: "冠軍雙拼",
+    tags: ["鱈魚大叔", "台南", "武聖夜市", "中西區", "新據點", "加盟"],
+  },
 ];
+
 
 // Questions answered on every store page and in its FAQPage JSON-LD.
 export function storeFaq(store: FeaturedStore) {
@@ -486,7 +511,9 @@ export function storeFaq(store: FeaturedStore) {
       q: `${store.name}的營業時間？`,
       a: store.hours
         ? `${store.hours}。實際時間依現場狀況調整。`
-        : `通常營業 15:00–23:00，實際時間依現場狀況調整。`,
+        : store.days
+          ? `營業日為${store.days}，通常營業 15:00–23:00，實際時間依現場狀況調整。`
+          : `通常營業 15:00–23:00，實際時間依現場狀況調整。`,
     },
   ];
   if (store.delivery) {

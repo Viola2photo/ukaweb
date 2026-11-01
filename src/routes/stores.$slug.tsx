@@ -21,7 +21,7 @@ export const Route = createFileRoute("/stores/$slug")({
     const store = loaderData?.store;
     if (!store) return {};
     const title = `${store.name}｜${store.district}鱈魚大叔 地址・營業時間・菜單`;
-    const description = `鱈魚大叔${store.name}：${store.address}。${store.nearby}。招牌${store.signature}、鱈花枝、墨魚燒，${store.hours ?? "歡迎先來電確認營業時間"}。`;
+    const description = `鱈魚大叔${store.name}：${store.address}。${store.nearby}。招牌${store.signature}、鱈花枝、墨魚燒，${store.hours ?? (store.days ? `營業日${store.days}` : "營業時間依現場狀況")}。`;
     const url = storeUrl(store);
     return {
       meta: [
@@ -93,6 +93,12 @@ function StorePage() {
                 <small>{store.nearby}</small>
               </span>
             </li>
+            {store.days && (
+              <li>
+                <Clock size={18} aria-hidden="true" />
+                <span>營業日：{store.days}</span>
+              </li>
+            )}
             {store.hours && (
               <li>
                 <Clock size={18} aria-hidden="true" />

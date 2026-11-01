@@ -1552,34 +1552,6 @@
   color: var(--primary);
 }
 
-.store-dots {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 12px;
-}
-.store-dots button {
-  width: 12px;
-  height: 12px;
-  padding: 0;
-  border-radius: 999px;
-  border: 2px solid var(--ink);
-  background: transparent;
-  cursor: pointer;
-}
-.store-dots button.on {
-  background: var(--primary);
-}
-
-.store-map {
-  width: 100%;
-  height: 280px;
-  margin-top: 24px;
-  border: 3px solid var(--ink);
-  border-radius: 24px;
-  display: block;
-}
-
 .store-cards-title {
   margin: 0 0 12px;
   font-family: var(--font-serif);
@@ -1754,4 +1726,16 @@
   margin: 0;
   font-size: 14px;
   line-height: 1.8;
+}
+
+.store-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 16px;
+}
+.store-grid .store-card {
+  height: 100%;
 }

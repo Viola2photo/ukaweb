@@ -125,7 +125,7 @@ function StorePage() {
           )}
           {store.highlights && (
             <>
-              <h2 className="store-h2">新攤位有什麼不一樣？</h2>
+              <h2 className="store-h2">{store.highlightsTitle ?? "新攤位有什麼不一樣？"}</h2>
               <ul className="store-highlights">
                 {store.highlights.map((h) => (
                   <li key={h}>{h}</li>

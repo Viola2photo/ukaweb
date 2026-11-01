@@ -416,6 +416,7 @@ export type FeaturedStore = {
   roaming?: { area: string; schedule: readonly { place: string; day: string }[] };
   facebookVideoUrl?: string;
   intro: string[];
+  highlightsTitle?: string;
   highlights?: readonly string[];
   note?: string;
   signature: string;
@@ -597,6 +598,32 @@ export const featuredStores: readonly FeaturedStore[] = [
     ],
     signature: "冠軍雙拼",
     tags: ["鱈魚大叔", "嘉義", "文化夜市", "擺攤", "加盟"],
+  },
+  {
+    slug: "taichung-wuqi",
+    name: "台中梧棲第一市場店",
+    image: img("store-taichung-wuqi.jpg"),
+    imageAlt: "鱈魚大叔介紹台中梧棲第一市場新加盟點的攤位",
+    city: "台中市",
+    district: "梧棲區",
+    address: "台中市梧棲區雲集街33號（梧棲第一市場）",
+    nearby: "梧棲第一市場內",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=" +
+      encodeURIComponent("台中市梧棲區雲集街33號"),
+    facebookVideoUrl: "https://www.facebook.com/reel/1745037463322378/",
+    intro: [
+      "梧棲鄉親看過來！各位海線的朋友們，鱈魚大叔在「梧棲第一市場」開新攤啦！",
+      "這次由兩位超級認真、想要斜槓增加收入的年輕老闆（昶男＆銘浩）用心經營，大叔親自掛保證，這攤真的「不惜成本、超有特色」！",
+      "在地人或是來海線及梧棲玩的朋友，拜託一定要用新台幣去支持一下這兩位用心、正向又肯努力的年輕人！",
+    ],
+    highlightsTitle: "必吃亮點",
+    highlights: [
+      "CP 值破表的佛心套餐：買大份或特大份餐點，只要加 40 元就能升級套餐（包含一份薯條＋一杯蔓越莓醋）。大叔偷偷算給你聽，外面光一杯醋飲就賣 65 元了，這加購價根本是交朋友的。",
+      "不惜成本的「變形金剛」獨家紙盒：為了讓炸物外帶回家仍保持酥脆、不被熱氣悶爛，老闆自己找到成本貴一倍的特製盒。打開可以直接邊走邊吃，折起來就能完美加蓋外帶回家。",
+    ],
+    signature: "冠軍雙拼",
+    tags: ["鱈魚大叔", "斜槓", "梧棲", "海線", "加盟", "擺攤"],
   },
 ];
 

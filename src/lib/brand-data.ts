@@ -572,6 +572,30 @@ export const featuredStores: readonly FeaturedStore[] = [
     signature: "冠軍雙拼",
     tags: ["鱈魚大叔", "草屯", "南投", "草鞋墩", "加盟", "斜槓", "擺攤"],
   },
+  {
+    slug: "chiayi-culture",
+    name: "嘉義文化夜市店",
+    image: img("store-chiayi-culture.jpg"),
+    imageAlt: "鱈魚大叔在嘉義文化夜市新加盟點位的攤車前介紹",
+    city: "嘉義市",
+    district: "",
+    address: "嘉義市文化夜市（第三信用合作社正對面）",
+    nearby: "文化夜市正中央，第三信用合作社正對面",
+    directions:
+      "我們就在文化夜市的正中央！抬頭找「第三信用合作社」，正對面那個香氣撲鼻、擺著誘人冠軍雙拼樣品的攤位就是。",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=" +
+      encodeURIComponent("嘉義文化夜市 第三信用合作社"),
+    facebookVideoUrl: "https://www.facebook.com/reel/1973069320044113/",
+    intro: [
+      "鱈魚大叔插旗嘉義文化夜市啦！嘉義的鄉親朋友們，我們來啦！這幾天剛開幕就感受到大家滿滿的熱情，真的太感動了！",
+      "眼尖的朋友可能會發現，影片裡顧攤的阿哲很眼熟（提示：蘆洲夜市）！但他今天只是來代班救援的。嘉義店真正的老闆，其實是阿哲的超人媽媽！這已經是他們開的第三間分店了，戰鬥力是不是超級高！",
+      "大叔真心話時間：阿哲媽媽充滿活力、很願意為自己打拼，這份精神真的非常不簡單！而阿哲平時雖然要顧北部的攤位，一有空也是立刻南下來幫媽媽的忙，超級孝順！",
+      "大家如果有逛到文化夜市，千萬別忘了來找我們，點份外酥內Q的冠軍雙拼，順便給這位熱血打拼的媽媽一個最溫暖的鼓勵吧！",
+    ],
+    signature: "冠軍雙拼",
+    tags: ["鱈魚大叔", "嘉義", "文化夜市", "擺攤", "加盟"],
+  },
 ];
 
 // Questions answered on every store page and in its FAQPage JSON-LD.

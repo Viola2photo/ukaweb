@@ -79,7 +79,7 @@ export function storeStructuredData(store: FeaturedStore) {
               "@type": "PostalAddress",
               addressCountry: "TW",
               addressRegion: store.city,
-              addressLocality: store.district,
+              addressLocality: store.district || undefined,
               streetAddress: store.address.replace(`${store.city}${store.district}`, ""),
             },
         sameAs: store.facebookVideoUrl ? [store.facebookVideoUrl] : undefined,

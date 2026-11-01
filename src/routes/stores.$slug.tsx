@@ -20,7 +20,7 @@ export const Route = createFileRoute("/stores/$slug")({
   head: ({ loaderData }) => {
     const store = loaderData?.store;
     if (!store) return {};
-    const title = `${store.name}｜${store.roaming?.area ?? store.district}鱈魚大叔 ${store.roaming ? "每週行程" : "地址"}・營業時間・菜單`;
+    const title = `${store.name}｜${store.roaming?.area ?? (store.district || store.city)}鱈魚大叔 ${store.roaming ? "每週行程" : "地址"}・營業時間・菜單`;
     const description = `鱈魚大叔${store.name}：${store.address}。${store.nearby}。招牌${store.signature}、鱈花枝、墨魚燒，${store.hours ?? (store.days ? `營業日${store.days}` : "營業時間依現場狀況")}。`;
     const url = storeUrl(store);
     return {

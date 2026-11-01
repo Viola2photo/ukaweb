@@ -544,8 +544,35 @@ export const featuredStores: readonly FeaturedStore[] = [
       "新攤位報到",
     ],
   },
+  {
+    slug: "nantou-caotun",
+    name: "南投草屯 阿芳哥",
+    image: img("store-nantou-caotun.jpg"),
+    imageAlt: "鱈魚大叔介紹南投草屯最新加盟點與攤車",
+    city: "南投縣",
+    district: "草屯鎮",
+    address: "南投草屯一帶跑攤（每週位置見專頁）",
+    nearby: "南投草屯、台中霧峰一帶的夜市，週五・六・日 18:00 後在草鞋墩人文夜市",
+    roaming: {
+      area: "南投草屯",
+      schedule: [
+        { place: "霧峰大東路夜市", day: "週二" },
+        { place: "南投家樂福夜市", day: "週三" },
+        { place: "南崗夜市", day: "週四" },
+        { place: "草鞋墩夜市", day: "週五・六・日" },
+      ],
+    },
+    facebookVideoUrl: "https://www.facebook.com/reel/2106092576997448/",
+    intro: [
+      "鱈魚大叔全台美食地圖再添一個新據點！這次帶大家來到南投草屯。據說現在全台灣只差雲林還沒解鎖，雲林的朋友們，加盟連線還不快快手刀聯繫起來！",
+      "勵志斜槓加盟主阿芳哥，白天從事測量工作，為了給長大的孩子更好的生活，選擇晚上出來斜槓創業！未來甚至打算發展成全職事業，這份精神真的超值得大家掏出新台幣大力支持捧場！",
+      "台中、彰化、南投、草屯、霧峰……所有喜歡鱈魚大叔的朋友們，心動不如馬上行動，下班下課趕快衝一波，給熱血斜槓的阿芳哥最直接的支持吧！",
+    ],
+    note: "每週五・六・日 18:00 後，阿芳哥會在旁邊熱鬧的草鞋墩人文夜市擺攤。",
+    signature: "冠軍雙拼",
+    tags: ["鱈魚大叔", "草屯", "南投", "草鞋墩", "加盟", "斜槓", "擺攤"],
+  },
 ];
-
 
 // Questions answered on every store page and in its FAQPage JSON-LD.
 export function storeFaq(store: FeaturedStore) {

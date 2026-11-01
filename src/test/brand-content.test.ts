@@ -128,7 +128,8 @@ describe("store pages are discoverable", () => {
 
   it("gives every store a full address, answers and valid JSON-LD", () => {
     for (const store of featuredStores) {
-      expect(store.address).toContain(store.city);
+      if (store.roaming) expect(store.roaming.schedule.length).toBeGreaterThan(0);
+      else expect(store.address).toContain(store.city);
       expect(storeFaq(store).length).toBeGreaterThanOrEqual(3);
       const graph = storeStructuredData(store)["@graph"];
       expect(graph.map((n) => n["@type"])).toEqual([

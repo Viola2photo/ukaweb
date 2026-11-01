@@ -402,7 +402,6 @@ export const privacyPolicy = {
 export type FeaturedStore = {
   slug: string;
   name: string;
-  badge: string;
   image: string;
   imageAlt: string;
   city: string;
@@ -416,6 +415,8 @@ export type FeaturedStore = {
   mapUrl: string;
   facebookVideoUrl?: string;
   intro: string[];
+  highlights?: readonly string[];
+  note?: string;
   signature: string;
   tags: readonly string[];
 };
@@ -425,7 +426,6 @@ export const featuredStores: readonly FeaturedStore[] = [
   {
     slug: "taichung-liming",
     name: "台中黎明路店",
-    badge: "最新加盟",
     image: img("store-taichung-liming.jpg"),
     imageAlt: "鱈魚大叔在台中黎明路新加盟點位的攤位前介紹",
     city: "台中市",
@@ -448,7 +448,6 @@ export const featuredStores: readonly FeaturedStore[] = [
   {
     slug: "taichung-donghai",
     name: "台中東海店",
-    badge: "最新加盟",
     image: img("store-taichung-donghai.jpg"),
     imageAlt: "鱈魚大叔在台中東海商圈新加盟點位的大型招牌前介紹",
     city: "台中市",
@@ -473,7 +472,6 @@ export const featuredStores: readonly FeaturedStore[] = [
   {
     slug: "tainan-wusheng",
     name: "台南武聖夜市店",
-    badge: "最新加盟",
     image: img("store-tainan-wusheng.jpg"),
     imageAlt: "鱈魚大叔在台南武聖夜市新加盟點位的攤位前介紹",
     city: "台南市",
@@ -494,6 +492,48 @@ export const featuredStores: readonly FeaturedStore[] = [
     ],
     signature: "冠軍雙拼",
     tags: ["鱈魚大叔", "武聖夜市", "台南美食", "台南", "斜槓"],
+  },
+  {
+    slug: "hsinchu-qingcaohu",
+    name: "新竹青草湖夜市店",
+    image: img("p-flower.jpg"),
+    imageAlt: "鱈魚大叔北海鱈花枝，現點現炸",
+    city: "新竹市",
+    district: "香山區",
+    address: "新竹市香山區青草湖夜市",
+    nearby: "新竹青草湖夜市，看到最亮、最香、前面還有人排隊的那一攤就是",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=" +
+      encodeURIComponent("新竹市香山區青草湖夜市"),
+    facebookVideoUrl: "https://www.facebook.com/reel/913599771812685/",
+    intro: [
+      "鱈魚大叔的「神鵰俠侶情侶檔」出沒中！這次來到新竹青草湖夜市，除了介紹全新的攤位，也順便公開弘哲與凱莉一星期的行程。",
+      "老闆在影片裡很認真介紹新餐車，但我們知道，大家最後看的還是那一盤炸物。畢竟攤位再漂亮，還是要吃進嘴裡，才算真正認識。",
+      "弘哲與凱莉每週的擺攤位置：竹中口（週一）、竹北興希望社區（週二）、新埔（週三）、二重埔（週四）、新庄子（週五）、竹東（週六）。新竹、竹東與桃園的朋友，記得先把時間和地點存起來！看到最亮、最香，前面還有人排隊的那一攤，不用懷疑，先來找鱈魚大叔就對了！",
+    ],
+    highlights: [
+      "全新可拆式兩截餐車，整體更穩、更好看",
+      "招牌高高掛，遠遠就能找到",
+      "燈一打開，亮到肚子都知道該餓了",
+      "鱈花枝現點現炸，香味完全不打算低調",
+      "原本賣炸雙胞胎，現在改來跟鱈魚大叔一起「炸」出新人生",
+    ],
+    note: "實際出攤情況可能依天候及夜市安排調整。",
+    signature: "北海鱈花枝",
+    tags: [
+      "鱈魚大叔",
+      "鱈花枝",
+      "新竹美食",
+      "新竹夜市",
+      "青草湖夜市",
+      "二重埔夜市",
+      "竹東沿河街夜市",
+      "竹中口夜市",
+      "大溪老街",
+      "現點現炸",
+      "夜市炸物",
+      "新攤位報到",
+    ],
   },
 ];
 

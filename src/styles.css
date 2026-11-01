@@ -1739,3 +1739,15 @@
 .store-grid .store-card {
   height: 100%;
 }
+
+.store-highlights {
+  margin: 0 0 14px;
+  padding-left: 22px;
+  font-size: 17px;
+  line-height: 1.9;
+}
+.store-note {
+  margin: 0 0 14px;
+  font-size: 14px;
+  color: var(--muted-foreground);
+}

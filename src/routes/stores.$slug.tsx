@@ -83,7 +83,6 @@ function StorePage() {
           )}
         </div>
         <div className="store-body">
-          <span className="store-badge">{store.badge}</span>
           <h1 className="section-heading">{store.name}</h1>
           <ul className="store-facts">
             <li>
@@ -111,6 +110,17 @@ function StorePage() {
               {p}
             </p>
           ))}
+          {store.highlights && (
+            <>
+              <h2 className="store-h2">新攤位有什麼不一樣？</h2>
+              <ul className="store-highlights">
+                {store.highlights.map((h) => (
+                  <li key={h}>{h}</li>
+                ))}
+              </ul>
+            </>
+          )}
+          {store.note && <p className="store-note">※{store.note}</p>}
           {store.directions && (
             <>
               <h2 className="store-h2">怎麼去</h2>

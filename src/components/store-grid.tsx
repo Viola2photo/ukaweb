@@ -14,7 +14,6 @@ export function StoreGrid({ stores }: { stores: readonly FeaturedStore[] }) {
           >
             <img src={store.image} alt="" loading="lazy" />
             <span className="store-card-body">
-              <span className="store-badge">{store.badge}</span>
               <strong>{store.name}</strong>
               <small>{store.address}</small>
               {store.days && <small>營業日：{store.days}</small>}

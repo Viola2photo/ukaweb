@@ -16,6 +16,7 @@ export function StoreContact({ where }: { where: string }) {
   return (
     <section className="store-contact" aria-label="諮詢方式">
       <p className="store-contact-title">想詢問或了解加盟？</p>
+      <p className="store-contact-hint">LINE ID 與諮詢電話相同。</p>
       <div className="store-contact-buttons">
         <Button variant="ink" size="sm" asChild>
           <a
@@ -28,7 +29,7 @@ export function StoreContact({ where }: { where: string }) {
         </Button>
         <Button variant="inkline" size="sm" onClick={onCopy}>
           {line.state === "success" ? <Check /> : <Copy />}
-          {line.state === "success" ? "LINE ID 已複製" : `LINE ID ${contact.lineId}（點擊複製）`}
+          {line.state === "success" ? "LINE ID 已複製" : "複製 LINE ID"}
         </Button>
       </div>
       {line.state === "fallback" && (

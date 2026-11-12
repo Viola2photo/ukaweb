@@ -1966,3 +1966,12 @@
   border-radius: 8px;
   background: #fff;
 }
+
+.store-contact-hint {
+  margin: -6px 0 10px;
+  font-size: 13px;
+  color: var(--muted-foreground);
+}
+.store-contact-buttons .brand-button {
+  max-width: 100%;
+}

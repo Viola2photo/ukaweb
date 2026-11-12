@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, Clock, MapPin } from "lucide-react";
 import { FacebookVideo } from "@/components/facebook-video";
+import { StoreContact } from "@/components/store-contact";
 import { Button } from "@/components/ui/button";
 import {
   brandImages,
@@ -187,6 +188,7 @@ function StorePage() {
               </details>
             ))}
           </div>
+          <StoreContact where={`store-${store.slug}`} />
           {others.length > 0 && (
             <>
               <h2 className="store-h2">其他新加盟點位</h2>

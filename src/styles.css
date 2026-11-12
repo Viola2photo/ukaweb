@@ -1931,3 +1931,38 @@
   width: 104px;
   height: 150px;
 }
+
+.store-contact {
+  margin-top: 28px;
+  padding: 16px 18px;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 18px;
+}
+.store-contact-title {
+  margin: 0 0 10px;
+  font-family: var(--font-serif);
+  font-weight: 900;
+  font-size: 18px;
+}
+.store-contact-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.store-contact-backup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.store-contact-backup input {
+  flex: 1;
+  min-width: 0;
+  padding: 4px 8px;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  background: #fff;
+}

@@ -200,7 +200,7 @@ export const regions: readonly Region[] = [
     name: "南部",
     items: [
       { text: "嘉義文化夜市" },
-      { text: "台南永康區南台街13巷28號" },
+      { text: "屏東縣枋寮鄉中山路二段326號" },
       { text: "瑞豐夜市第三排158號" },
       { text: "台南武聖夜市 第五排第15號", day: "週三・五・六" },
       { text: "屏東煙囪觀光夜市", day: "週日" },

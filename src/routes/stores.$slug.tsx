@@ -9,6 +9,7 @@ import {
   featuredStores,
   siteUrl,
   storeFaq,
+  storeTags,
 } from "@/lib/brand-data";
 import { storeStructuredData, storeUrl } from "@/lib/structured-data";
 
@@ -203,7 +204,12 @@ function StorePage() {
               </ul>
             </>
           )}
-          <p className="store-tags">{store.tags.map((t) => `#${t}`).join(" ")}</p>
+          <h2 className="store-h2">相關標籤</h2>
+          <ul className="store-tag-list">
+            {storeTags(store).map((t) => (
+              <li key={t}>#{t}</li>
+            ))}
+          </ul>
         </div>
       </main>
 

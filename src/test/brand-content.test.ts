@@ -17,6 +17,7 @@ import {
   regions,
   steps,
   storeFaq,
+  storeTags,
 } from "@/lib/brand-data";
 import { storeStructuredData } from "@/lib/structured-data";
 
@@ -173,5 +174,16 @@ describe("fees that are not charged", () => {
     expect(faq.find((i) => i.q.includes("加盟金"))?.a).toContain("不收加盟金、保證金、簽約金、續約金");
     expect(faq.find((i) => i.q.includes("加盟方案"))?.a).toContain("續約金");
     expect(readFileSync(resolve(__dirname, "../../public/llms.txt"), "utf8")).toContain("續約金");
+  });
+});
+
+describe("store hashtags", () => {
+  it("gives every store page its own tags plus the brand tags without duplicates", () => {
+    for (const store of featuredStores) {
+      const tags = storeTags(store);
+      expect(new Set(tags).size).toBe(tags.length);
+      expect(tags).toContain("鱈魚大叔");
+      expect(tags.length).toBeGreaterThan(8);
+    }
   });
 });

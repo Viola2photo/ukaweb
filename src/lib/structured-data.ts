@@ -6,6 +6,7 @@ import {
   featuredStores,
   siteUrl,
   storeFaq,
+  storeTags,
   type FeaturedStore,
 } from "@/lib/brand-data";
 
@@ -75,7 +76,7 @@ export function storeStructuredData(store: FeaturedStore) {
         description: store.intro.join(""),
         servesCuisine: ["台灣小吃", "魚漿炸物", "海鮮"],
         priceRange,
-        keywords: store.tags.join(","),
+        keywords: storeTags(store).join(","),
         hasMenu: `${siteUrl}#products`,
         hasMap: store.mapUrl,
         parentOrganization: { "@id": `${siteUrl}#organization` },

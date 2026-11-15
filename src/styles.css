@@ -1975,3 +1975,20 @@
 .store-contact-buttons .brand-button {
   max-width: 100%;
 }
+
+.store-tag-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.store-tag-list li {
+  padding: 4px 12px;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+}

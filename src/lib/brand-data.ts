@@ -399,6 +399,13 @@ export const privacyPolicy = {
   ],
 } as const;
 
+// Hashtags every store page carries on top of its own, so each page is found for the brand and the food.
+export const baseStoreTags = ["鱈魚大叔", "烏卡港", "鱈花枝", "夜市炸物", "夜市美食", "現點現炸", "加盟"] as const;
+
+export function storeTags(store: FeaturedStore): string[] {
+  return [...new Set([...store.tags, ...baseStoreTags])];
+}
+
 export type FeaturedStore = {
   slug: string;
   name: string;
@@ -445,7 +452,7 @@ export const featuredStores: readonly FeaturedStore[] = [
       "所有附近的朋友、基隆同鄉，歡迎來捧場！幫這對努力的母女加加油，順便把肚子照顧好。",
     ],
     signature: "冠軍雙拼",
-    tags: ["鱈魚大叔", "台中", "黎明路", "新據點", "逢甲"],
+    tags: ["鱈魚大叔", "台中", "台中美食", "黎明路", "逢甲", "逢甲夜市", "南屯", "朝馬", "宵夜", "新據點"],
   },
   {
     slug: "taichung-donghai",
@@ -469,7 +476,7 @@ export const featuredStores: readonly FeaturedStore[] = [
       "外皮炸得金黃酥脆，裡面是紮實的海鮮口感。想吃點有儀式感的下午茶、下課點心，或只是今天很需要一份炸物安慰，都可以來東海商圈找美味。不想出門也沒關係，現場有 Uber Eats，讓鱈魚大叔自己游去你家。",
     ],
     signature: "冠軍雙拼",
-    tags: ["東海商圈", "鱈魚大叔", "台中", "加盟"],
+    tags: ["東海商圈", "東海大學", "東海夜市", "台中", "台中美食", "龍井", "海線", "台中宵夜", "加盟"],
   },
   {
     slug: "tainan-wusheng",
@@ -493,7 +500,7 @@ export const featuredStores: readonly FeaturedStore[] = [
       "台南的朋友，逛武聖夜市時記得來找他們！還沒吃過的，來嘗鮮；吃過喜歡的，再帶朋友來，呷尬併軌！",
     ],
     signature: "冠軍雙拼",
-    tags: ["鱈魚大叔", "武聖夜市", "台南美食", "台南", "斜槓"],
+    tags: ["武聖夜市", "台南夜市", "台南美食", "台南", "中西區", "台南小吃", "斜槓"],
   },
   {
     slug: "hsinchu-roaming",
@@ -571,7 +578,7 @@ export const featuredStores: readonly FeaturedStore[] = [
     ],
     note: "每週五・六・日 18:00 後，阿芳哥會在旁邊熱鬧的草鞋墩人文夜市擺攤。",
     signature: "冠軍雙拼",
-    tags: ["鱈魚大叔", "草屯", "南投", "草鞋墩", "加盟", "斜槓", "擺攤"],
+    tags: ["草屯", "南投", "南投美食", "草鞋墩", "草鞋墩人文夜市", "霧峰夜市", "南崗夜市", "加盟", "斜槓", "擺攤"],
   },
   {
     slug: "chiayi-culture",
@@ -597,7 +604,7 @@ export const featuredStores: readonly FeaturedStore[] = [
       "大家如果有逛到文化夜市，千萬別忘了來找我們，點份外酥內Q的冠軍雙拼，順便給這位熱血打拼的媽媽一個最溫暖的鼓勵吧！",
     ],
     signature: "冠軍雙拼",
-    tags: ["鱈魚大叔", "嘉義", "文化夜市", "擺攤", "加盟"],
+    tags: ["嘉義", "嘉義美食", "嘉義夜市", "文化夜市", "嘉義文化夜市", "第三信用合作社", "擺攤", "加盟"],
   },
   {
     slug: "taichung-wuqi",
@@ -623,7 +630,7 @@ export const featuredStores: readonly FeaturedStore[] = [
       "不惜成本的「變形金剛」獨家紙盒：為了讓炸物外帶回家仍保持酥脆、不被熱氣悶爛，老闆自己找到成本貴一倍的特製盒。打開可以直接邊走邊吃，折起來就能完美加蓋外帶回家。",
     ],
     signature: "冠軍雙拼",
-    tags: ["鱈魚大叔", "斜槓", "梧棲", "海線", "加盟", "擺攤"],
+    tags: ["梧棲", "梧棲第一市場", "海線", "台中美食", "斜槓", "加盟", "擺攤"],
   },
   {
     slug: "taoyuan-tourist",
@@ -644,7 +651,7 @@ export const featuredStores: readonly FeaturedStore[] = [
       "阿宏與雙寶媽是在桃園與中壢觀光夜市擺攤的正向小夫妻。桃園的朋友逛夜市時，有空請多多捧場，給這對樂觀打拚的小夫妻一點最直接的支持！",
     ],
     signature: "冠軍雙拼",
-    tags: ["烏卡港", "鱈魚大叔", "夜市美食", "桃園", "桃園美食", "中壢", "中壢美食"],
+    tags: ["烏卡港", "夜市美食", "桃園", "桃園美食", "桃園觀光夜市", "桃園夜市", "中壢", "中壢美食", "中壢夜市"],
   },
 ];
 

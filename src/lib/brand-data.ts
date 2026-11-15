@@ -251,7 +251,7 @@ export const noFeesSummary = `不收${noFees.items.join("、")}。${noFees.note}
 
 export const existingBusiness = {
   label: "已經有攤位或小吃店？",
-  body: "也歡迎來了解。只要將鱈魚大叔提供的攤位單獨擺設，並張貼提供的海報即可，實際合作細節以正式契約為準。",
+  body: "將鱈魚大叔提供的攤位單獨擺設，並張貼提供的海報即可。其他細節歡迎直接與大叔聯繫，了解實際狀況。",
 } as const;
 
 export type Step = {

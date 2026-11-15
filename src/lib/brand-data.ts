@@ -249,6 +249,11 @@ export const noFees = {
 
 export const noFeesSummary = `不收${noFees.items.join("、")}。${noFees.note}`;
 
+export const existingBusiness = {
+  label: "已經有攤位或小吃店？",
+  body: "也歡迎來了解。只要將鱈魚大叔提供的攤位單獨擺設，並張貼提供的海報即可，實際合作細節以正式契約為準。",
+} as const;
+
 export type Step = {
   title: string;
   body: string;
@@ -333,6 +338,10 @@ export const faq = [
   {
     q: "加盟需要付加盟金、保證金嗎？",
     a: `不需要。${noFeesSummary}實際內容以正式契約為準。`,
+  },
+  {
+    q: "已經有攤位或小吃店，也可以加盟嗎？",
+    a: `可以。${existingBusiness.body}`,
   },
   {
     q: "想加盟的第一步是什麼？",

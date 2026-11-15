@@ -18,6 +18,7 @@ import {
   philosophy,
   creed,
   cashPlan,
+  existingBusiness,
   noFees,
   faq,
   featuredStores,
@@ -402,6 +403,10 @@ function Index() {
                   ))}
                 </ul>
                 <p>{noFees.note}</p>
+              </div>
+              <div className="card existing-card rise">
+                <small>{existingBusiness.label}</small>
+                <p>{existingBusiness.body}</p>
               </div>
               <div className="track">
                 <div className="track-line" aria-hidden="true" />

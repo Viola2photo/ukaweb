@@ -21,3 +21,43 @@ export const steps = [
   { title: '完成準備、開始營業', body: '設備、攤位及相關物品準備完成後，即可使用首批貨品與耗材開始營業。', items: undefined, note: undefined, quote: undefined },
   { title: '營業後再開始付款', body: '24萬元分為12期，每期2萬元；簽約滿一個月後才開始支付第一期。', items: undefined, note: '付款起算依簽約滿一個月，不以是否已有收入為條件。開業時程依實際準備情形。', quote: '正常情況下，開始繳款前應該已經正式營業並產生收入，讓創業者不用在尚未營運前，就先承擔全部加盟費用。' },
 ]
+
+export type LocationStory = {
+  store: string
+  title: string
+  owner: string
+  poster: string
+  posterAlt: string
+  video: string
+  paragraphs: string[]
+  address: string
+  landmark: string
+  hours: string
+  tags: string[]
+}
+
+const hashtagUrl = (tag: string) => `https://www.facebook.com/hashtag/${encodeURIComponent(tag)}`
+export const tagLink = (tag: string) => ({ label: `#${tag}`, href: hashtagUrl(tag) })
+
+// 依 locations 的完整文字對應；有故事的據點會在「尋找大叔」顯示故事按鈕
+export const locationStories: Record<string, LocationStory> = {
+  '台中黎明路三段26號': {
+    store: '鱈魚大叔黎明店',
+    title: '女兒長大了，這次換媽媽追夢',
+    owner: '台中海豚媽',
+    poster: '/stories/liming-dolphin-mom.jpg',
+    posterAlt: '鱈魚大叔創業故事：台中海豚媽在黎明店攤位前準備炸物，前方是國潮來襲紙盒與紙桶裝的鱈魚炸物',
+    video: 'https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F2169840960326216%2F&show_text=false&width=267&t=0',
+    paragraphs: [
+      '🐬 以前為女兒求安穩，現在海豚媽想為自己拚一次。',
+      '女兒還小的時候，海豚媽在檳榔攤工作。有一份穩定的收入，把孩子照顧好，是她最在意的事。至於當老闆的夢，就先擱著。',
+      '後來女兒長大了，偶爾還會來搭把手。海豚媽也想給自己一個機會。跟大叔聊過才發現，兩個人居然都是基隆人！基隆老鄉在台中遇到，這緣分最後還真的聊出了一攤炸物。😄',
+      '自己開店才知道，老闆聽起來很威風，忙起來還是得自己炸、自己包！她也曾懷疑自己選得對不對。碰到問題就一起想辦法，哪裡做得不順，就一點一點改。現在能跟女兒一起忙出餐，她說，這樣就很幸福了。',
+      '下次到鱈魚大叔黎明店，記得跟海豚媽打聲招呼。來份熱騰騰的炸物，也給這位終於為自己拚一次的媽媽加個油！💪',
+    ],
+    address: '台中市黎明路三段26號',
+    landmark: '宏香火雞肉飯旁（原宏佳），鄰近朝馬',
+    hours: '17:00–03:30',
+    tags: ['鱈魚大叔', '黎明路', '台中', '創業故事'],
+  },
+}
